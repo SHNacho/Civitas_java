@@ -110,14 +110,24 @@ public class Civitas {
         
         boolean lol = true;
         
-        d = Dado.getInstance().salgoDeLaCarcel();
+        lol = Dado.getInstance().salgoDeLaCarcel();
         
-        if (d == true)
+        if (lol == true)
             System.out.println("salgo de la carcel");
         else
             System.out.println("no salgo de la carcel");
         
         // Funciona toda la clase Dado
+        
+        //Ahora mostraremos al menos un valor de cada enumerado
+        
+        System.out.println("Ahora mostraremos un valor de cada enumerado");
+        
+        System.out.println("Tipo de casilla: " + TipoCasilla.CALLE);
+        
+        System.out.println("Tipo de sorpresa: " + TipoSorpresa.IRCASILLA);
+        
+        System.out.println("Estados de juego: " + EstadosJuego.DESPUES_AVANZAR);
                     
             
         
