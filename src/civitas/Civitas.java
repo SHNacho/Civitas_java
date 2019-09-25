@@ -116,6 +116,8 @@ public class Civitas {
             System.out.println("salgo de la carcel");
         else
             System.out.println("no salgo de la carcel");
+        
+        // Funciona toda la clase Dado
                     
             
         
