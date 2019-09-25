@@ -37,7 +37,19 @@ public class Civitas {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        MazoSorpresas mazo = new MazoSorpresas();
+        
+        int n= 6;
+        
+        int p1,p2,p3,p4,p5,p6;
+        
+        
+        
+        for (int i = 0; i< 100; i++){
+            System.out.println(Dado.getInstance().quienEmpieza(n));
+        }
+            
+            
+        
     }
     
 }
