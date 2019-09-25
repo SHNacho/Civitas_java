@@ -38,6 +38,18 @@ public class Civitas {
     public static void main(String[] args) {
         // TODO code application logic here
         MazoSorpresas mazo = new MazoSorpresas();
+        Sorpresa sorpresa = new Sorpresa("sorpresa");
+        Sorpresa sorpresa2 = new Sorpresa("sorpresa2");
+        
+        mazo.alMazo(sorpresa);
+        mazo.alMazo(sorpresa2);
+        mazo.siguiente();
+        mazo.siguiente();
+        mazo.siguiente();
+        Sorpresa s = mazo.siguiente();
+        mazo.inhabilitarCartaEspecial(sorpresa);
+        
+        System.out.println(s.getSorpresa());
     }
     
 }
