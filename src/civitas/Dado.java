@@ -60,7 +60,7 @@ public class Dado {
     int quienEmpieza (int n){
         
         
-        int empieza = (int)(rnd.nextDouble() * (n-1) + 0);
+        int empieza = (rnd.nextInt(n));
         
         return empieza;
     }
