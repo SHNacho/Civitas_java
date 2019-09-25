@@ -37,6 +37,7 @@ public class Civitas {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        MazoSorpresas mazo = new MazoSorpresas();
     }
     
 }
