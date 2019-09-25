@@ -73,10 +73,50 @@ public class Civitas {
         }
         
         System.out.println("Número de veces que empieza cada participante (hay 4)");
-        System.out.println(p1);
-        System.out.println(p2);
-        System.out.println(p3);
-        System.out.println(p4);
+        System.out.println("Participante 1 "+p1);
+        System.out.println("Participante 2 "+p2);
+        System.out.println("Participante 3 "+p3);
+        System.out.println("Participante 4 "+p4);
+        
+        // Comprobamos que funciona el método debug
+        
+        System.out.println("Comprobamos el método debug");
+        
+        boolean d = true;
+        
+        System.out.println("Para debug=true, se dan las siguientes tiradas:");
+        
+        Dado.getInstance().setDebug(d);
+        
+        for (int i= 0; i < 5; i++)
+            System.out.println(Dado.getInstance().tirar());
+        
+        d = false;
+        
+        System.out.println("Para debug=false, se dan las siguientes tiradas:");
+        
+        Dado.getInstance().setDebug(d);
+        
+        for (int i= 0; i < 5; i++)
+            System.out.println(Dado.getInstance().tirar());
+        
+        // Comprobamos que funciona getUltimoResultado() y salgoDeLaCarcel()
+        
+        System.out.println("Comprobamos el método getUltimoResultado");
+        
+        System.out.println(Dado.getInstance().getUltimoResultado());
+        
+        // Podemos observar que devuelve el último valor de la tirada
+        
+        boolean lol = true;
+        
+        d = Dado.getInstance().salgoDeLaCarcel();
+        
+        if (d == true)
+            System.out.println("salgo de la carcel");
+        else
+            System.out.println("no salgo de la carcel");
+                    
             
         
     }

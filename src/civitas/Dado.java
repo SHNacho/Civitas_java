@@ -40,7 +40,7 @@ public class Dado {
         ultimoResultado = 1;
         
         if (debug == false)
-            ultimoResultado = (rnd.nextInt(6-1+1) +1);
+            ultimoResultado = (rnd.nextInt(6) +1);
         
         return ultimoResultado;
     }
