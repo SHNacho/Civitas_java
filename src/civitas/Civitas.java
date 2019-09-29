@@ -182,9 +182,26 @@ public class Civitas {
         int tirada = tabla.calcularTirada(3, 2);
         
         System.out.println("La tirada es: " + tirada);
+        
+        System.out.println("La tirada es: "+tabla.calcularTirada(2,5));
                    
         // Podemos comprobar que se calcula bien la tirada
-            
+        
+        // Una vez que hemos visto que se calcula bien la tirada comprobamos que
+        // dado un origen y dado la tirada se calcula bien el destino
+        
+        
+        int origen = 2;
+        
+        int tirar = 6;
+        
+        int posicion= tabla.nuevaPosicion (origen, tirar); 
+        
+        System.out.println("El nuevo destino es " + posicion);
+        
+        
+  
+       
         
     }
     
