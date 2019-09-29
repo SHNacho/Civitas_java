@@ -15,4 +15,8 @@ public class Casilla {
     public Casilla(String _nombre){
         nombre = _nombre;
     }
+    
+    String getNombre (){
+        return nombre;
+    }
 }

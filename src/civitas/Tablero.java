@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Tablero {
     
     private int numCasillaCarcel;
-    private ArrayList<Casilla> casillas;
+    private ArrayList<Casilla> casillas = new ArrayList<Casilla>();
     private int porSalida;
     private boolean tieneJuez;
     
@@ -27,7 +27,8 @@ public class Tablero {
             numCasillaCarcel = num;
         }
         
-        Casilla salida = new Casilla ("Salida");  
+        Casilla salida = new Casilla ("Salida");
+        
         
         casillas.add(salida);       // Array con una sola casilla "salida"
         
@@ -125,7 +126,7 @@ public class Tablero {
         
         if (tirada < 0){
             porSalida++;
-            tirada = tirada + casillas.size();
+            tirada += casillas.size();
 
         }
         return tirada;

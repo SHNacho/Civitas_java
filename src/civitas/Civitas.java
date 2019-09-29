@@ -128,7 +128,41 @@ public class Civitas {
         System.out.println("Tipo de sorpresa: " + TipoSorpresa.IRCASILLA);
         
         System.out.println("Estados de juego: " + EstadosJuego.DESPUES_AVANZAR);
-                    
+        
+        // Ahora comprobaremos que funciona la clase Tablero
+        
+        Tablero tabla = new Tablero(3);
+        
+        tabla.añadeJuez();          // Porque sino el tablero no es correcto
+        
+        Casilla casilla1 = new Casilla("Primera");
+        Casilla casilla2 = new Casilla("Segunda");
+        Casilla casilla3 = new Casilla("Tercera");
+        Casilla casilla4 = new Casilla ("Cuarta");
+        
+        
+        tabla.añadeCasilla(casilla1);
+        tabla.añadeCasilla(casilla2);
+        tabla.añadeCasilla(casilla3);
+        tabla.añadeCasilla(casilla4);
+        
+        Casilla devolver = new Casilla("a");
+        
+        for (int i = 0; i < 7; i++){
+            devolver = (tabla.getCasilla(i));
+            
+            System.out.println(devolver.getNombre());
+        }
+        
+        // Al ejecutarlo podemos comprobar como funciona correctamente
+        
+        // Tras esto vamos a comprobar que funciona el método de calcular tirada
+        
+        int tirada = tabla.calcularTirada(3, 2);
+        
+        System.out.println("La tirada es: " + tirada);
+                   
+        // Podemos comprobar que se calcula bien la tirada
             
         
     }
