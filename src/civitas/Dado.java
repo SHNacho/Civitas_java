@@ -15,7 +15,7 @@ public class Dado {
     
     //Atributos de instancia
     
-    private Random rnd = new Random();
+    private Random random = new Random();
     private int ultimoResultado;
     private boolean debug;
     
@@ -40,7 +40,7 @@ public class Dado {
         ultimoResultado = 1;
         
         if (debug == false)
-            ultimoResultado = (rnd.nextInt(6) +1);
+            ultimoResultado = (random.nextInt(6) +1);
         
         return ultimoResultado;
     }
@@ -60,7 +60,7 @@ public class Dado {
     int quienEmpieza (int n){
         
         
-        int empieza = (rnd.nextInt(n));
+        int empieza = (random.nextInt(n));
         
         return empieza;
     }

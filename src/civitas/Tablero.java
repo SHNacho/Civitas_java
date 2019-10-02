@@ -18,7 +18,7 @@ public class Tablero {
     private int porSalida;
     private boolean tieneJuez;
     
-    Tablero (int num){          // Constructor de visibilidad de paquete
+    public Tablero (int num){          // Constructor de visibilidad de paquete
         
         if (num < 1){
             numCasillaCarcel = 1;
