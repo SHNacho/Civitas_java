@@ -26,6 +26,30 @@ enum EstadosJuego {
   DESPUES_COMPRAR,
   DESPUES_GESTIONAR
 }
+
+enum OperacionesJuego{
+    PASAR_TURNO,
+    SALIR_CARCEL,
+    AVANZAR,
+    COMPRAR,
+    GESTIONAR
+}
+
+enum GestorEstados{
+    
+    EstadosJuego estadoInicial(){
+    
+    }
+    
+    OperacionesJuego operacionesPermitidas (Jugador jugador, EstadosJuego estado){
+    
+    }
+
+    EstadosJuego siguienteEstado ( Jugador jugador, EstadosJuego estado, OperacionesJuego operacion){
+
+    }     
+    
+}
 /**
  *
  * @author nacho
