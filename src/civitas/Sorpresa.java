@@ -86,7 +86,7 @@ public class Sorpresa{
         Diario diario = Diario.getInstance();
         
         if (jugadorCorrecto(actual, todos)){
-            diario.ocurreEvento("Se aplica Sorpresa a "+todos[actual].getNombre());
+            diario.ocurreEvento("Se aplica Sorpresa a "+todos.get(actual).getNombre());
         }   
     }
     
@@ -97,12 +97,12 @@ public class Sorpresa{
             boolean laTiene = false;
             
             for (int i = 0; i<todos.size(); i++){
-                if (todos[i].tieneSalvoConducto())
+                if (todos.get(i).tieneSalvoConducto())
                     laTiene = true;
             }
             
             if (!laTiene){
-                todos[actual].obtenerSalvoConducto();
+                todos.get(actual).obtenerSalvoConducto();
                 SalirdelMazo();
             }
         }
@@ -129,9 +129,9 @@ public class Sorpresa{
          if (jugadorCorrecto(actual, todos)){
              informe(actual, todos);
              
-             float saldo = valor * todos[actual].getCasasPorHotel();
+             float saldo = valor * todos.get(actual).getCasasPorHotel();
              
-             todos[actual].modificarSaldo(saldo);
+             todos.get(actual).modificarSaldo(saldo);
          }  
     }
     
@@ -139,7 +139,7 @@ public class Sorpresa{
         if (jugadorCorrecto(actual, todos)){
             informe(actual,todos);
             
-            todos[actual].modificarSaldo(valor);
+            todos.get(actual).modificarSaldo(valor);
         }
     }
     
@@ -147,14 +147,14 @@ public class Sorpresa{
         if (jugadorCorrecto(actual,todos)){
            informe(actual, todos);
            int casilla = tablero.getCarcel();
-           todos[actual].encarcelar(casilla);
+           todos.get(actual).encarcelar(casilla);
         }
     }
     
     private void aplicarAJugador_irACasilla(int actual, ArrayList<Jugador> todos){
         if (jugadorCorrecto(actual,todos)){
             informe (actual, todos);
-            int casillaActual = todos[actual].getNumCasillaActual();
+            int casillaActual = todos.get(actual).getNumCasillaActual();
             
             // Calculamos la tirada con el valor de sorpresa y con la casilla actual
             
@@ -162,7 +162,7 @@ public class Sorpresa{
             
             int nuevaPos=tablero.nuevaPosicion(actual, tirada);
             
-            todos[actual].moverACasilla(nuevaPos);
+            todos.get(actual).moverACasilla(nuevaPos);
             
             Casilla casilla = tablero.getCasilla(valor);
             
