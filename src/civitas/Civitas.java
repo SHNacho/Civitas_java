@@ -34,22 +34,6 @@ enum OperacionesJuego{
     COMPRAR,
     GESTIONAR
 }
-
-enum GestorEstados{
-    
-    EstadosJuego estadoInicial(){
-    
-    }
-    
-    OperacionesJuego operacionesPermitidas (Jugador jugador, EstadosJuego estado){
-    
-    }
-
-    EstadosJuego siguienteEstado ( Jugador jugador, EstadosJuego estado, OperacionesJuego operacion){
-
-    }     
-    
-}
 /**
  *
  * @author nacho
