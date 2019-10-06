@@ -79,7 +79,7 @@ public class TituloPropiedad {
         boolean construida = false;
 
         if(jugador == propietario){
-            propietario.paga(precioEdificar);
+            propietario.paga(precioEdificar*5);
             numHoteles++;
             construida=true;
         }
