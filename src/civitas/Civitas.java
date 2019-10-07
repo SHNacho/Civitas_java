@@ -26,6 +26,14 @@ enum EstadosJuego {
   DESPUES_COMPRAR,
   DESPUES_GESTIONAR
 }
+
+enum OperacionesJuego{
+    PASAR_TURNO,
+    SALIR_CARCEL,
+    AVANZAR,
+    COMPRAR,
+    GESTIONAR
+}
 /**
  *
  * @author nacho
