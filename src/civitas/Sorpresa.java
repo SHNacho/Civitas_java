@@ -55,6 +55,7 @@ public class Sorpresa{
         texto = "Salir de la carcel";
     }
     
+    @Override
     public String toString(){
         
         String tp = tipo.toString ();

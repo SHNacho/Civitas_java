@@ -96,7 +96,9 @@ public class CivitasJuego {
     }
     
     public Casilla getCasillaActual(){
-        return (jugadores.get(indiceJugadorActual).getNumCasillaActual());
+        int casillaActual = jugadores.get(indiceJugadorActual).getNumCasillaActual();
+        
+        return (tablero.getCasilla(casillaActual));
     }
     
     public Jugador getJugadorActual(){
@@ -161,7 +163,7 @@ public class CivitasJuego {
     
     private ArrayList<Jugador> ranking(){
         
-        Collections.sort(jugadores, jugadores.compareTo());
+        Collections.sort(jugadores);
         
         return jugadores;
     }
