@@ -44,9 +44,8 @@ public class Civitas {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        TituloPropiedad titulo = new TituloPropiedad("titulo", 10, 10, 10, 10, 10);
-        
-        System.out.println(titulo.toString());
+        Jugador nacho = new Jugador("Nacho");
+        Jugador julio = new Jugador("Julio");
     }
     
 }
