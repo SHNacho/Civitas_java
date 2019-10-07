@@ -39,6 +39,7 @@ public class Jugador implements Comparable<Jugador> {
         propiedades = otro.propiedades;
     }
     // boolean cancelarHipoteca(int ip){}
+    //Probar
     int cantidadCasasHoteles(){
         int cantidad = 0;
         for(TituloPropiedad propiedad : propiedades){
