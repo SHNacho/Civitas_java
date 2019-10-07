@@ -130,7 +130,7 @@ public class Sorpresa{
          if (jugadorCorrecto(actual, todos)){
              informe(actual, todos);
              
-             float saldo = valor * todos.get(actual).getCasasPorHotel();
+             float saldo = valor * todos.get(actual).cantidadCasasHoteles();
              
              todos.get(actual).modificarSaldo(saldo);
          }  
