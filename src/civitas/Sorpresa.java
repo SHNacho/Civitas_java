@@ -124,6 +124,7 @@ public class Sorpresa{
             Sorpresa sorpresa2 = new Sorpresa(TipoSorpresa.PAGARCOBRAR,(valor*(todos.size()-1)),"Pagarcobrar");
             
             aplicarAJugador_pagarCobrar(actual, todos);
+        }
     }
     
     private void aplicarAJugador_porCasaHotel(int actual, ArrayList<Jugador> todos){

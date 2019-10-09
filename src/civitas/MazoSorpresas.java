@@ -1,6 +1,3 @@
-
-
-
 package civitas;
 
 import java.util.ArrayList;

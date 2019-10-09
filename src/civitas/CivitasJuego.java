@@ -26,7 +26,7 @@ public class CivitasJuego {
     
     GestorEstados gestorEstados;
     
-    public CivitasJuego (ArrayList<String> nombres, int casillaCarcel){               // 4 nombres
+    public CivitasJuego (ArrayList<String> nombres){               // 4 nombres
         if (nombres.size()<=4){
             for (int i=0; i < nombres.size(); i++)
                 jugadores.add(new Jugador(nombres.get(i)));
@@ -36,7 +36,7 @@ public class CivitasJuego {
         
         indiceJugadorActual = Dado.getInstance().quienEmpieza(jugadores.size());
         
-        inicializarTablero(mazo, casillaCarcel);
+        inicializarTablero(mazo);
         
         inicializarMazoSorpresas (tablero);
     }
@@ -143,14 +143,28 @@ public class CivitasJuego {
     }
     
     private void inicializarMazoSorpresas(Tablero tablero){
-        MazoSorpresas mazito = new MazoSorpresas();
+        mazo = new MazoSorpresas();
         
-        mazo = mazito;
+        mazo.alMazo(new Sorpresa(TipoSorpresa.IRCARCEL, tablero));
+        
+        mazo.alMazo(new Sorpresa(TipoSorpresa.IRCASILLA, tablero,5,"A casilla 5"));
+            
+        mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, 10, "Por casa hotel"));
+        
     }
     
-    private void inicializarTablero(MazoSorpresas mazo, int casillaCarcel){
-        Tablero tabla = new Tablero(casillaCarcel);
-        tablero = tabla;
+    private void inicializarTablero(MazoSorpresas mazo){
+        tablero = new Tablero(4);
+        
+        tablero.añadeJuez();
+        
+        tablero.añadeCasilla(new Casilla("Descanso"));
+        
+        tablero.añadeCasilla(new Casilla(200, "Impuesto"));
+        
+        tablero.añadeCasilla(new Casilla(mazo, "Sorpresa"));
+        
+        // Añadimos casillas más adelante
     }
     
     private void pasarTurno(){
