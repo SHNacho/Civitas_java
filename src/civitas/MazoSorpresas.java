@@ -65,7 +65,7 @@ public class MazoSorpresas {
        
        if(inhabilitada){
            cartasEspeciales.add(sorpresa);
-           String evento = "Se ha inhabilitado la carta especial: " + sorpresa.getSorpresa();
+           String evento = "Se ha inhabilitado la carta especial: " + sorpresa.toString();
            Diario.getInstance().ocurreEvento(evento);
        }
    }
@@ -75,7 +75,7 @@ public class MazoSorpresas {
        if (pos != -1){
            sorpresas.add(sorpresa);
            cartasEspeciales.remove(pos);
-           String evento = "Se ha habilitado la carta especial: " + sorpresa.getSorpresa();
+           String evento = "Se ha habilitado la carta especial: " + sorpresa.toString();
            Diario.getInstance().ocurreEvento(evento);
        }
    }

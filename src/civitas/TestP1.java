@@ -93,6 +93,8 @@ public class TestP1{
         
         System.out.println("Estados de juego: " + EstadosJuego.DESPUES_AVANZAR);
 
+        
+        /*
         //Funcionamiento de la clase MazoSorpresas
         MazoSorpresas mazo       = new MazoSorpresas();
         Sorpresa      sorpresa_1 = new Sorpresa("Sorpresa 1");
@@ -105,6 +107,7 @@ public class TestP1{
 
         mazo.inhabilitarCartaEspecial(sorpresa_2);
         mazo.habilitarCartaEspecial(sorpresa_2);
+        */
 
         System.out.println("\nAhora se leerá el diario");
         Diario diario = Diario.getInstance();

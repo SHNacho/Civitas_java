@@ -69,12 +69,13 @@ public class CivitasJuego {
         }     
     }
     
+    /*
     public boolean cancelarHipoteca (int ip){
         return (jugadores.get(indiceJugadorActual).cancelarHipoteca(ip));
     }
     
     public boolean comprar(){
-        return false;
+     
     }
     
     public boolean construirCasa (int ip){
@@ -84,6 +85,7 @@ public class CivitasJuego {
     public boolean construirHotel(int ip){
         return (jugadores.get(indiceJugadorActual).construirHotel(ip));
     }
+*/
     
     public boolean finalDelJuego(){
         boolean bancarrota = false;
@@ -105,9 +107,10 @@ public class CivitasJuego {
         return jugadores.get(indiceJugadorActual);
     }
     
-    public boolean hipotecar(int ip){
+    /*public boolean hipotecar(int ip){
         return (jugadores.get(indiceJugadorActual).hipotecar(ip));
     }
+*/
     
     public String infoJugadorTexto(){
         String info = ("Nombre: " + jugadores.get(indiceJugadorActual).getNombre() +

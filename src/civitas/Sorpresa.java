@@ -98,12 +98,12 @@ public class Sorpresa{
             boolean laTiene = false;
             
             for (int i = 0; i<todos.size(); i++){
-                if (todos.get(i).tieneSalvoConducto())
+                if (todos.get(i).tieneSalvoconducto())
                     laTiene = true;
             }
             
             if (!laTiene){
-                todos.get(actual).obtenerSalvoConducto();
+                todos.get(actual).obtenerSalvoconducto(this);
                 SalirdelMazo();
             }
         }
