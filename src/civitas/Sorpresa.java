@@ -1,16 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package civitas;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author nacho
- */
 public class Sorpresa{
     
     private String texto;
@@ -58,7 +49,7 @@ public class Sorpresa{
     @Override
     public String toString(){
         
-        String tp = tipo.toString ();
+        String tp = tipo.toString () + "\n" + texto;
         
         return (tp);
     }
@@ -98,12 +89,12 @@ public class Sorpresa{
             boolean laTiene = false;
             
             for (int i = 0; i<todos.size(); i++){
-                if (todos.get(i).tieneSalvoConducto())
+                if (todos.get(i).tieneSalvoconducto())
                     laTiene = true;
             }
             
             if (!laTiene){
-                todos.get(actual).obtenerSalvoConducto();
+                todos.get(actual).obtenerSalvoconducto();
                 SalirdelMazo();
             }
         }
