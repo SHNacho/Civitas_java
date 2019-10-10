@@ -3,11 +3,6 @@ package civitas;
 import java.util.ArrayList;
 import java.util.Collections;
 
-/**
- *
- * @author nacho
- */
-
 public class MazoSorpresas {
    private ArrayList<Sorpresa> sorpresas;
    private boolean barajada;
