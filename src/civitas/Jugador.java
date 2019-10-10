@@ -11,7 +11,7 @@ public class Jugador implements Comparable<Jugador> {
     private static float PrecioLibertad = 200;
     private static float SaldoInicial   = 7500;
 
-    private boolean encarcelado;
+    protected boolean encarcelado;
     private String nombre;
     private int numCasillaActual;
     private boolean puedeComprar;
@@ -118,7 +118,7 @@ public class Jugador implements Comparable<Jugador> {
         return PasoPorSalida;
     }
     
-    private ArrayList<TituloPropiedad> getPropiedades(){
+    protected ArrayList<TituloPropiedad> getPropiedades(){
         return propiedades;
     }
 
@@ -126,7 +126,7 @@ public class Jugador implements Comparable<Jugador> {
         return puedeComprar;
     }
 
-    private float getSaldo(){
+    protected float getSaldo(){
         return saldo;
     }
 
@@ -214,13 +214,13 @@ public class Jugador implements Comparable<Jugador> {
     private boolean PuedoEdificarCasa(TituloPropiedad propiedad){
         return( propiedades.contains(propiedad) &&
                (propiedad.getNumCasas() < CasasMax) && 
-               (saldo >= propiedad.getPrecioEdificar()) );
+               puedoGastar(propiedad.getPrecioEdificar()) );
     }
 
     private boolean puedoEdificarHotel(TituloPropiedad propiedad){
         return( propiedades.contains(propiedad) &&
                (propiedad.getNumCasas() < CasasMax) && 
-               (saldo >= propiedad.getPrecioEdificar()*5) );
+               puedoGastar(propiedad.getPrecioEdificar()*5));
     }
     
     private boolean puedoGastar(float precio){

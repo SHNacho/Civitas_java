@@ -94,7 +94,7 @@ public class Sorpresa{
             }
             
             if (!laTiene){
-                todos.get(actual).obtenerSalvoconducto();
+                todos.get(actual).obtenerSalvoconducto(this);
                 SalirdelMazo();
             }
         }
@@ -115,13 +115,14 @@ public class Sorpresa{
             Sorpresa sorpresa2 = new Sorpresa(TipoSorpresa.PAGARCOBRAR,(valor*(todos.size()-1)),"Pagarcobrar");
             
             aplicarAJugador_pagarCobrar(actual, todos);
+        }
     }
     
     private void aplicarAJugador_porCasaHotel(int actual, ArrayList<Jugador> todos){
          if (jugadorCorrecto(actual, todos)){
              informe(actual, todos);
              
-             float saldo = valor * todos.get(actual).getCasasPorHotel();
+             float saldo = valor * todos.get(actual).cantidadCasasHoteles();
              
              todos.get(actual).modificarSaldo(saldo);
          }  
@@ -174,7 +175,7 @@ public class Sorpresa{
             if (tipo == TipoSorpresa.PORCASAHOTEL)
                 aplicarAJugador_porCasaHotel(actual,todos);
             if (tipo == TipoSorpresa.PORJUGADOR)
-                aplicarAJugador_irCarcel(actual,todos);
+                aplicarAJugador_porJugador(actual,todos);
             if (tipo == TipoSorpresa.SALIRCARCEL)
                 aplicarAJugador_salirCarcel(actual,todos);
         }  
