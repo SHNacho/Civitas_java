@@ -118,12 +118,12 @@ public class Sorpresa{
             
             for (int i = 0; i < todos.size(); i++){
                 if (i != actual)
-                    aplicarAJugador_pagarCobrar(i, todos);
+                    sorpresa.aplicarAJugador(i, todos);
             }
             
             Sorpresa sorpresa2 = new Sorpresa(TipoSorpresa.PAGARCOBRAR,(valor*(todos.size()-1)),"Pagarcobrar");
             
-            aplicarAJugador_pagarCobrar(actual, todos);
+            sorpresa2.aplicarAJugador(actual, todos);
         }
     }
     
