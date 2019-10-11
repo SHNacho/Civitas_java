@@ -171,7 +171,7 @@ public class TituloPropiedad {
         return encarcelado;
     }
 
-    boolean tienePripietario(){
+    boolean tienePropietario(){
         return (propietario != null);
     }
 
@@ -184,7 +184,7 @@ public class TituloPropiedad {
             hipotecado_str = "Sí";
         }
 
-        if(tienePripietario()){
+        if(tienePropietario()){
             nombre_propietario = propietario.getNombre();
         }
 
@@ -205,7 +205,7 @@ public class TituloPropiedad {
     }
 
     void tramitarAlquiler(Jugador jugador){
-        if(tienePripietario() && propietario != jugador){
+        if(tienePropietario() && propietario != jugador){
             propietario.recibe(alquilerBase);
             jugador.pagaAlquiler(alquilerBase);
         }
