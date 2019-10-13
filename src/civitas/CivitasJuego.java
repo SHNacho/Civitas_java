@@ -48,11 +48,11 @@ public class CivitasJuego {
         
         System.out.println ("El nombre del jugador actual es: " + jugadores.get(indiceJugadorActual).getNombre());
         
-        System.out.println ("La casilla actual del jugador actual es: " + jugadores.get(indiceJugadorActual).getNumCasillaActual());
+        System.out.println ("La casilla actual del jugador actual es: " + Integer.toString(jugadores.get(indiceJugadorActual).getNumCasillaActual()));
         
-        System.out.println ("El saldo del jugador actual es: " + jugadores.get(indiceJugadorActual).getSaldo());
+        System.out.println ("El saldo del jugador actual es: " + Float.toString(jugadores.get(indiceJugadorActual).getSaldo()));
         
-        System.out.println ("Tiene " + jugadores.get(indiceJugadorActual).getPropiedades().size()+ "propiedades.");
+        System.out.println ("Tiene " + Integer.toString(jugadores.get(indiceJugadorActual).getPropiedades().size()) + "propiedades.");
         
         boolean bancarrota = false;
         
@@ -115,8 +115,8 @@ public class CivitasJuego {
     
     public String infoJugadorTexto(){
         String info = ("Nombre: " + jugadores.get(indiceJugadorActual).getNombre() +
-             " Casilla: " + jugadores.get(indiceJugadorActual).getNumCasillaActual() + "Saldo: "+   
-              jugadores.get(indiceJugadorActual).getSaldo());
+             " Casilla: " + Integer.toString(jugadores.get(indiceJugadorActual).getNumCasillaActual()) + "Saldo: "+   
+              Float.toString(jugadores.get(indiceJugadorActual).getSaldo()));
         
         return info;
     }
