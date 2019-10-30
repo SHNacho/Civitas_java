@@ -69,14 +69,15 @@ public class CivitasJuego {
         }     
     }
     
-    /*
+    
     public boolean cancelarHipoteca (int ip){
         return (jugadores.get(indiceJugadorActual).cancelarHipoteca(ip));
     }
-    
+    /*
     public boolean comprar(){
      
     }
+    */
     
     public boolean construirCasa (int ip){
         return (jugadores.get(indiceJugadorActual).construirCasa(ip));
@@ -85,7 +86,6 @@ public class CivitasJuego {
     public boolean construirHotel(int ip){
         return (jugadores.get(indiceJugadorActual).construirHotel(ip));
     }
-*/
     
     public boolean finalDelJuego(){
         boolean bancarrota = false;
@@ -128,7 +128,22 @@ public class CivitasJuego {
         return (jugadores.get(indiceJugadorActual).salirCarcelTirando());
     }
     
-    //public OperacionesJuego siguientePaso(){}
+    public OperacionesJuego siguientePaso(){
+        Jugador jugadorActual = jugadores.get(indiceJugadorActual);
+        
+        OperacionesJuego operacion = gestorEstados.operacionesPermitidas(jugadorActual, estado);
+        
+        if (operacion == OperacionesJuego.PASAR_TURNO){
+            this.pasarTurno();
+            this.siguientePasoCompletado(operacion);
+        }
+        
+        if (operacion==OperacionesJuego.AVANZAR){
+            this.avanzaJugador();
+            this.siguientePasoCompletado(operacion);
+        }
+        return operacion;
+    }
     
     public void siguientePasoCompletado(OperacionesJuego operacion){
         

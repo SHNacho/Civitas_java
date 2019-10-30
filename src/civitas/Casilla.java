@@ -82,7 +82,16 @@ public class Casilla {
     }
 
     void recibeJugador(int actual, ArrayList<Jugador> todos){
-
+        if (tipo == TipoCasilla.CALLE)
+            this.recibeJugador_calle (actual, todos);
+        else if (tipo==TipoCasilla.IMPUESTO)
+            this.recibeJugador_impuesto(actual, todos);
+        else if (tipo==TipoCasilla.JUEZ)
+            this.recibeJugador_juez(actual, todos);
+        else if (tipo==TipoCasilla.SORPRESA)
+            this.recibeJugador_sorpresa(actual, todos);
+        else
+            informe(actual,todos);     
     }
 
     private void recibeJugador_calle(int actual, ArrayList<Jugador> todos){
