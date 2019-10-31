@@ -27,40 +27,28 @@ public class CivitasJuego {
     GestorEstados gestorEstados;
     
     public CivitasJuego (ArrayList<String> nombres){               // 4 nombres
+        jugadores = new ArrayList<>();
+        gestorEstados = new GestorEstados();
+
         if (nombres.size()<=4){
             for (int i=0; i < nombres.size(); i++)
                 jugadores.add(new Jugador(nombres.get(i)));
         }
                 
         gestorEstados.estadoInicial();
-        
+        estado = gestorEstados.estadoInicial();
         indiceJugadorActual = Dado.getInstance().quienEmpieza(jugadores.size());
-
         mazo = new MazoSorpresas();
-
+        tablero = new Tablero(4);
         inicializarMazoSorpresas (tablero);        
         inicializarTablero(mazo);
     }
     
     void actualizarInfo(){
         
-        // Para mostrar en consola la información usaremos el System.out
+        System.out.println(jugadores.get(indiceJugadorActual).toString());
         
-        System.out.println ("El nombre del jugador actual es: " + jugadores.get(indiceJugadorActual).getNombre());
-        
-        System.out.println ("La casilla actual del jugador actual es: " + Integer.toString(jugadores.get(indiceJugadorActual).getNumCasillaActual()));
-        
-        System.out.println ("El saldo del jugador actual es: " + Float.toString(jugadores.get(indiceJugadorActual).getSaldo()));
-        
-        System.out.println ("Tiene " + Integer.toString(jugadores.get(indiceJugadorActual).getPropiedades().size()) + "propiedades.");
-        
-        boolean bancarrota = false;
-        
-        for (int i = 0; i < jugadores.size(); i++)
-            if (jugadores.get(i).enBancarrota())
-                bancarrota = true;
-        
-        if (bancarrota){
+        if (finalDelJuego()){
             ArrayList<Jugador> rank = ranking();  
             
             System.out.println ("EL RANKING ES EL SIGUIENTE: ");
@@ -91,10 +79,12 @@ public class CivitasJuego {
     public boolean finalDelJuego(){
         boolean bancarrota = false;
         
-        for (int i = 0; i < jugadores.size(); i++)
+        int i = 0;
+        while (!bancarrota && (i < jugadores.size())) {
             if (jugadores.get(i).enBancarrota())
                 bancarrota = true;
-        
+        }        
+
         return bancarrota;
     }
     
