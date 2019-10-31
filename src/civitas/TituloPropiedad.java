@@ -54,7 +54,7 @@ public class TituloPropiedad {
     boolean comprar(Jugador jugador){
         boolean comprada = false;
 
-        if(propietario == null){
+        if(!tienePropietario()){
             jugador.paga(precioCompra);
             propietario = jugador;
             comprada = true;
@@ -79,7 +79,7 @@ public class TituloPropiedad {
         boolean construida = false;
 
         if(jugador == propietario){
-            propietario.paga(precioEdificar*5);
+            propietario.paga(precioEdificar);
             numHoteles++;
             construida=true;
         }
@@ -106,11 +106,12 @@ public class TituloPropiedad {
     }
 
     float getImporteCancelarHipoteca(){
-        return hipotecaBase*factorInteresesHipoteca;
+        return getImporteHipoteca()*factorInteresesHipoteca;
     }
 
     private float getImporteHipoteca(){
-        return hipotecaBase;
+        float importeHipoteca = (float)(hipotecaBase*(1+(numCasas*0.5)+(numHoteles*2.5)));
+        return importeHipoteca;
     }
 
     String getNombre(){
@@ -154,8 +155,7 @@ public class TituloPropiedad {
 
     boolean hipotecar(Jugador jugador){
         if (!hipotecado && esEsteElPropietario(jugador)){
-            float cantidad_recibida = (float)(hipotecaBase*(1+(numCasas*0.5)+(numHoteles*2.5)));
-            jugador.recibe(cantidad_recibida);
+            jugador.recibe(getImporteHipoteca());
             hipotecado = true;
             return true;
         }
@@ -189,17 +189,19 @@ public class TituloPropiedad {
         }
 
 
-        String str = "TituloPropiedad" + "\n" +
-                     "-Nombre:                   " + nombre + "\n" +
-                     "-Precio base de alquiler:  " + Float.toString(alquilerBase) + "\n" +
-                     "-Factor de revalorización: " + Float.toString(factorRevalorizacion) + "\n" +
-                     "-Hipoteca base:            " + Float.toString(hipotecaBase) + "\n" +
-                     "-Precio de compra:         " + Float.toString(precioCompra) + "\n" +
-                     "-Precio de edificar:       " + Float.toString(precioEdificar) + "\n" +
-                     "-Propietario:              " + nombre_propietario + "\n" +
-                     "-Hipotecado:               " + hipotecado_str + "\n" +
-                     "-Numero de casas:          " + Integer.toString(numCasas) + "\n" +
-                     "-Numero de hoteles:        " + Integer.toString(numHoteles) + "\n";
+        // String str = "TituloPropiedad" + "\n" +
+        //              "-Nombre:                   " + nombre + "\n" +
+        //              "-Precio base de alquiler:  " + Float.toString(alquilerBase) + "\n" +
+        //              "-Factor de revalorización: " + Float.toString(factorRevalorizacion) + "\n" +
+        //              "-Hipoteca base:            " + Float.toString(hipotecaBase) + "\n" +
+        //              "-Precio de compra:         " + Float.toString(precioCompra) + "\n" +
+        //              "-Precio de edificar:       " + Float.toString(precioEdificar) + "\n" +
+        //              "-Propietario:              " + nombre_propietario + "\n" +
+        //              "-Hipotecado:               " + hipotecado_str + "\n" +
+        //              "-Numero de casas:          " + Integer.toString(numCasas) + "\n" +
+        //              "-Numero de hoteles:        " + Integer.toString(numHoteles) + "\n";
+
+        String str = nombre;
 
         return str;
     }
