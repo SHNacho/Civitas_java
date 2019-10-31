@@ -31,14 +31,19 @@ public class CivitasJuego {
             for (int i=0; i < nombres.size(); i++)
                 jugadores.add(new Jugador(nombres.get(i)));
         }
-                
+        
         gestorEstados.estadoInicial();
         
+        estado = gestorEstados.estadoInicial();
+        
         indiceJugadorActual = Dado.getInstance().quienEmpieza(jugadores.size());
+
+        mazo = new MazoSorpresas();
         
+        tablero = new Tablero (5);
+
+        inicializarMazoSorpresas (tablero);        
         inicializarTablero(mazo);
-        
-        inicializarMazoSorpresas (tablero);
     }
     
     void actualizarInfo(){
@@ -47,11 +52,11 @@ public class CivitasJuego {
         
         System.out.println ("El nombre del jugador actual es: " + jugadores.get(indiceJugadorActual).getNombre());
         
-        System.out.println ("La casilla actual del jugador actual es: " + jugadores.get(indiceJugadorActual).getNumCasillaActual());
+        System.out.println ("La casilla actual del jugador actual es: " + Integer.toString(jugadores.get(indiceJugadorActual).getNumCasillaActual()));
         
-        System.out.println ("El saldo del jugador actual es: " + jugadores.get(indiceJugadorActual).getSaldo());
+        System.out.println ("El saldo del jugador actual es: " + Float.toString(jugadores.get(indiceJugadorActual).getSaldo()));
         
-        System.out.println ("Tiene " + jugadores.get(indiceJugadorActual).getPropiedades().size()+ "propiedades.");
+        System.out.println ("Tiene " + Integer.toString(jugadores.get(indiceJugadorActual).getPropiedades().size()) + "propiedades.");
         
         boolean bancarrota = false;
         
@@ -114,8 +119,8 @@ public class CivitasJuego {
     
     public String infoJugadorTexto(){
         String info = ("Nombre: " + jugadores.get(indiceJugadorActual).getNombre() +
-             " Casilla: " + jugadores.get(indiceJugadorActual).getNumCasillaActual() + "Saldo: "+   
-              jugadores.get(indiceJugadorActual).getSaldo());
+             " Casilla: " + Integer.toString(jugadores.get(indiceJugadorActual).getNumCasillaActual()) + "Saldo: "+   
+              Float.toString(jugadores.get(indiceJugadorActual).getSaldo()));
         
         return info;
     }
@@ -172,15 +177,81 @@ public class CivitasJuego {
     }
     
     private void inicializarTablero(MazoSorpresas mazo){
-        tablero = new Tablero(4);
-        
-        tablero.añadeJuez();
-        
-        tablero.añadeCasilla(new Casilla("Descanso"));
-        
-        tablero.añadeCasilla(new Casilla(200, "Impuesto"));
-        
-        tablero.añadeCasilla(new Casilla(mazo, "Sorpresa"));
+          // Salida ya se añade en la posición 0
+          
+          // Añadimos en la posición 1 la calle 1
+          
+          tablero.añadeCasilla(new Casilla(new TituloPropiedad("Calle 1", 100, 0.05f, 200, 400, 300)));
+          
+          // Añadimos en la posición 2 la casilla impuesto
+          
+          tablero.añadeCasilla(new Casilla(300, "Impuesto"));
+          
+          // Añadimos en la posición 3 la calle 2
+          
+          tablero.añadeCasilla(new Casilla(new TituloPropiedad("Calle 2", 225, 0.075f, 450, 900, 675)));
+          
+          // Añadimos en la posición 4 la calle 3
+          
+          tablero.añadeCasilla(new Casilla(new TituloPropiedad("Calle 3", 150, 0.05f, 300, 600, 450)));
+          
+          // En la posición 5 ya está la cárcel
+          
+          // Añadimos en la posición 6 la calle 4
+          
+          tablero.añadeCasilla(new Casilla(new TituloPropiedad("Calle 4", 300, 0.075f, 600, 1200, 900)));
+          
+          // Añadimos en la posición 7 la sorpresa 1
+          
+          tablero.añadeCasilla(new Casilla(mazo, "Sorpresa 1"));
+          
+          // Añadimos en la posición 8 la calle 5
+          
+          tablero.añadeCasilla(new Casilla(new TituloPropiedad("Calle 5", 125, 0.05f, 250, 500, 375)));
+          
+          // Añadimos en la posición 9 la calle 6
+          
+          tablero.añadeCasilla(new Casilla(new TituloPropiedad("Calle 6", 200, 0.05f, 400, 800, 600)));
+          
+          // Añadimos en la posición 10 el parking
+          
+          tablero.añadeCasilla(new Casilla("Parking"));
+          
+          // Añadimos en la posición 11 la calle 7
+          
+          tablero.añadeCasilla(new Casilla(new TituloPropiedad("Calle 7", 400, 0.1f, 800, 1600, 1200)));
+          
+          // Añadimos en la posición 12 la calle 8
+          
+          tablero.añadeCasilla(new Casilla(new TituloPropiedad("Calle 8", 250, 0.075f, 500, 1000, 750)));
+          
+          // Añadimos en la posición 13 la sorpresa 2
+          
+          tablero.añadeCasilla(new Casilla(mazo, "Sorpresa 2"));
+          
+          // Añadimos en la posición 14 la calle 9
+          
+          tablero.añadeCasilla(new Casilla(new TituloPropiedad("Calle 9", 175, 0.05f, 350, 700, 525)));
+          
+          // Añadimos en la posición 15 el juez
+          
+          tablero.añadeJuez();
+          
+          // Añadimos en la posición 16 la calle 10
+          
+          tablero.añadeCasilla(new Casilla(new TituloPropiedad("Calle 10", 200, 0.05f, 400, 800, 600)));
+          
+          // Añadimos en la posición 17 la calle 11
+          
+          tablero.añadeCasilla(new Casilla(new TituloPropiedad("Calle 11", 350, 0.1f, 700, 1400, 1050)));
+          
+          // Añadimos en la posición 18 la calle 12
+          
+          tablero.añadeCasilla(new Casilla(new TituloPropiedad("Calle 12", 300, 0.075f, 600, 1200, 900)));
+          
+          // Añadimos en la posición 19 la sorpresa 3
+          
+          tablero.añadeCasilla(new Casilla(mazo, "Sorpresa3"));
         
         // Añadimos casillas más adelante
     }

@@ -94,9 +94,9 @@ public class Casilla {
             informe(actual,todos);     
     }
 
-    private void recibeJugador_calle(int actual, ArrayList<Jugador> todos){
+    // private void recibeJugador_calle(int actual, ArrayList<Jugador> todos){
 
-    }
+    // }
 
     private void recibeJugador_impuesto(int actual, ArrayList<Jugador> todos){
         if (actual < todos.size()){
