@@ -110,7 +110,7 @@ public class TituloPropiedad {
     }
 
     private float getImporteHipoteca(){
-        float importeHipoteca = (float)(hipotecaBase*(1+(numCasas*0.5)+(numHoteles*2.5)))
+        float importeHipoteca = (float)(hipotecaBase*(1+(numCasas*0.5)+(numHoteles*2.5)));
         return importeHipoteca;
     }
 
