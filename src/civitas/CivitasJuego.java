@@ -177,6 +177,15 @@ public class CivitasJuego {
     }
 
     private void avanzaJugador(){
-        
+        Jugador jugadorActual = jugadores.get(indiceJugadorActual);
+        int posicionActual = jugadorActual.getNumCasillaActual();
+        int tirada = Dado.getInstance().tirar();
+        int posicionNueva = tablero.nuevaPosicion(posicionActual, tirada);
+        Casilla casilla = tablero.getCasilla(posicionNueva);
+
+        contabilizarPasosPorSalida(jugadorActual);
+        jugadorActual.moverACasilla(posicionNueva);
+        casilla.recibeJugador(indiceJugadorActual, jugadores);
+        contabilizarPasosPorSalida(jugadorActual);
     }
 }

@@ -53,7 +53,27 @@ public class Jugador implements Comparable<Jugador> {
         return Float.compare(saldo, otro.saldo);
     }
 
-    // boolean comprar(TituloPropiedad titulo){}
+    boolean comprar(TituloPropiedad titulo){
+        boolean result = false;
+        if (encarcelado){
+            return result;
+        }
+
+        if(puedeComprar){
+            float precio = titulo.getPrecioCompra();
+
+            if(puedoGastar(precio)){
+                result = titulo.comprar(this);
+                
+                if(result){
+                    propiedades.add(titulo);
+                    Diario.getInstance().ocurreEvento("El jugador " + nombre + " compra la propiedad " + titulo.toString());
+                }
+            }
+        }
+
+        return result;
+    }
     // boolean construirCasa(int ip){}
     // boolean construirHotel(int ip){}
 
@@ -130,7 +150,24 @@ public class Jugador implements Comparable<Jugador> {
         return saldo;
     }
 
-    // boolean hipotecar(int ip){}
+    boolean hipotecar(int ip){
+        boolean result = false;
+
+        if(encarcelado)
+            return result;
+        
+        if(existeLaPropiedad(ip)){
+            TituloPropiedad propiedad = propiedades.get(ip);
+            result = propiedad.hipotecar(this);
+        }
+
+        if(result){
+            Diario.getInstance().ocurreEvento("El jugador " + nombre + " hipoteca la propiedad " + ip);
+        }
+
+        return result;
+    }
+
     public boolean isEncarcelado(){
         return encarcelado;
     }

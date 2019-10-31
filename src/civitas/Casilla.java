@@ -81,9 +81,9 @@ public class Casilla {
         return(actual < todos.size());
     }
 
-    // void recibeJugador(int actual, ArrayList<Jugador> todos){
+    void recibeJugador(int actual, ArrayList<Jugador> todos){
 
-    // }
+    }
 
     // private void recibeJugador_calle(int actual, ArrayList<Jugador> todos){
 
