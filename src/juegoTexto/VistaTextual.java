@@ -8,19 +8,22 @@ import java.util.Arrays;
 import java.util.Scanner;
 import civitas.Casilla;
 import civitas.Jugador;
+import civitas.OperacionesJuego;
 import civitas.TituloPropiedad;
 
-class VistaTextual {
+public class VistaTextual {
   
   CivitasJuego juegoModel; 
-  int iGestion=-1;
-  int iPropiedad=-1;
+  int iGestion;
+  int iPropiedad;
   private static String separador = "=====================";
   
   private Scanner in;
   
   VistaTextual () {
     in = new Scanner (System.in);
+    iGestion = -1;
+    iPropiedad = -1;
   }
   
   void mostrarEstado(String estado) {
@@ -100,7 +103,7 @@ class VistaTextual {
     
 
   void mostrarSiguienteOperacion(OperacionesJuego operacion) {
-      System.out.println("Siguiente operación: " + operacion.to_String());
+      System.out.println("Siguiente operación: " + operacion.toString());
   }
 
 

@@ -46,7 +46,7 @@ public class CivitasJuego {
         inicializarTablero(mazo);
     }
     
-    void actualizarInfo(){
+    public void actualizarInfo(){
         
         System.out.println(jugadores.get(indiceJugadorActual).toString());
         
