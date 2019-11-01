@@ -28,17 +28,14 @@ public class CivitasJuego {
     
     public CivitasJuego (ArrayList<String> nombres){               // 4 nombres
         jugadores = new ArrayList<>();
-        gestorEstados = new GestorEstados();
 
         if (nombres.size()<=4){
             for (int i=0; i < nombres.size(); i++)
                 jugadores.add(new Jugador(nombres.get(i)));
         }
         
-        gestorEstados.estadoInicial();
-        
+        gestorEstados = new GestorEstados();
         estado = gestorEstados.estadoInicial();
-        
         indiceJugadorActual = Dado.getInstance().quienEmpieza(jugadores.size());
         mazo = new MazoSorpresas();
         tablero = new Tablero (5);
@@ -89,6 +86,7 @@ public class CivitasJuego {
         while (!bancarrota && (i < jugadores.size())) {
             if (jugadores.get(i).enBancarrota())
                 bancarrota = true;
+            i++;
         }        
 
         return bancarrota;
@@ -110,10 +108,11 @@ public class CivitasJuego {
 
     
     public String infoJugadorTexto(){
-        String info = ("Nombre: " + jugadores.get(indiceJugadorActual).getNombre() +
+        String info = jugadores.get(indiceJugadorActual).toString();
+        /*String info = ("Nombre: " + jugadores.get(indiceJugadorActual).getNombre() +
              " Casilla: " + Integer.toString(jugadores.get(indiceJugadorActual).getNumCasillaActual()) + "Saldo: "+   
               Float.toString(jugadores.get(indiceJugadorActual).getSaldo()));
-        
+        */
         return info;
     }
     
@@ -153,7 +152,7 @@ public class CivitasJuego {
     
     private void contabilizarPasosPorSalida(Jugador jugadorActual){
         
-        if (tablero.getPorSalida()>0)
+        while (tablero.getPorSalida()>0)
             jugadorActual.pasaPorSalida();
     }
     

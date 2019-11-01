@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Casilla {
 
     /*========================ATRIBUTOS======================== */
-    private static int carcel;
+    private static int carcel = 0;
     private float importe;
     private String nombre;
     private TipoCasilla tipo;
@@ -68,7 +68,7 @@ public class Casilla {
     }
 
     private void init(){
-        carcel = 0;
+        // carcel = 0;
         importe = 0;
         mazo = null;
         nombre = "";
@@ -109,14 +109,14 @@ public class Casilla {
     }
 
     private void recibeJugador_impuesto(int actual, ArrayList<Jugador> todos){
-        if (actual < todos.size()){
+        if (jugadorCorrecto(actual,todos)){
             informe(actual, todos);
             todos.get(actual).pagaImpuesto(importe);
         }
     }
 
     private void recibeJugador_juez(int actual, ArrayList<Jugador> todos){
-        if (actual < todos.size()){
+        if (jugadorCorrecto(actual,todos)){
             informe(actual, todos);
             todos.get(actual).encarcelar(carcel);
         }
@@ -130,12 +130,16 @@ public class Casilla {
         }
     }
 
+    @Override
     public String toString(){
         String str = "CASILLA: \n" +
                      "Nombre:         " + nombre + "\n" +
                      "Tipo:           " + tipo + "\n";
         
-        switch (tipo) {                    
+        switch (tipo) {     
+            case CALLE:
+                str+="Precio:        " + Float.toString(tituloPropiedad.getPrecioCompra()) + "\n";
+                break;
             case IMPUESTO:
                 str+="Importe:        " + Float.toString(importe) + "\n";
                 break;
