@@ -81,10 +81,6 @@ public class CivitasJuego {
     public boolean construirHotel(int ip){
         return (jugadores.get(indiceJugadorActual).construirHotel(ip));
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> 841d88c0b7469dd0f4e5d1b811a42b4c7676fa32
     
     public boolean finalDelJuego(){
         boolean bancarrota = false;
