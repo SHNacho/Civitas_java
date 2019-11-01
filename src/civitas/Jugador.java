@@ -38,7 +38,28 @@ public class Jugador implements Comparable<Jugador> {
         salvoconducto = otro.salvoconducto;
         propiedades = otro.propiedades;
     }
-    // boolean cancelarHipoteca(int ip){}
+    boolean cancelarHipoteca(int ip){
+        boolean result = false;
+        
+        if (encarcelado)
+            return result;
+        
+        if (existeLaPropiedad(ip)){
+            TituloPropiedad propiedad = propiedades.get(ip);
+            float cantidad = propiedad.getImporteCancelarHipoteca();
+            
+            boolean puedoGastar = this.puedoGastar(cantidad);
+            
+            if (puedoGastar){
+                result = propiedad.cancelarHipoteca(this);
+                
+                if (result)
+                    Diario.getInstance().ocurreEvento("El jugador "+nombre+ " cancela la hipoteca de la propiedad "+ip);
+            }
+            
+        }
+        return result;          
+    }
     //Probar
     int cantidadCasasHoteles(){
         int cantidad = 0;
@@ -74,8 +95,53 @@ public class Jugador implements Comparable<Jugador> {
 
         return result;
     }
-    // boolean construirCasa(int ip){}
-    // boolean construirHotel(int ip){}
+    
+    boolean construirCasa(int ip){
+        boolean result = false;
+        boolean puedoEdificarCasa = false;
+        
+        if (encarcelado)
+            return result;
+        else{
+            boolean existe = this.existeLaPropiedad(ip);
+            
+            if (existe){
+                TituloPropiedad propiedad = propiedades.get(ip);
+                puedoEdificarCasa = this.PuedoEdificarCasa(propiedad);
+                
+                if (puedoEdificarCasa){
+                    result = propiedad.construirCasa(this);
+                    
+                    if (result)
+                        Diario.getInstance().ocurreEvento("El jugador "+nombre+" construye casa en la propiedad "+ ip);
+                }
+            }
+        }
+        return result;
+    }
+    boolean construirHotel(int ip){
+        boolean result = false;
+        
+        if (encarcelado)
+            return result;
+        
+        if (existeLaPropiedad(ip)){
+            TituloPropiedad propiedad = propiedades.get(ip);
+            
+            boolean puedoEdificarHotel = this.puedoEdificarHotel(propiedad);
+            
+            if (puedoEdificarHotel){
+                result = propiedad.construirHotel(this);
+                
+                int casasPorHotel = getCasasPorHotel();
+                
+                propiedad.derruirCasas(casasPorHotel, this);
+                
+                Diario.getInstance().ocurreEvento("El jugador "+nombre+ " construye hotel en la propiedad "+ip);
+            }
+        }
+        return result;  
+    }
 
     private boolean debeSerEncarcelado(){
         boolean debeSerEncarcelado = false;
