@@ -207,9 +207,10 @@ public class TituloPropiedad {
     }
 
     void tramitarAlquiler(Jugador jugador){
-        if(tienePropietario() && propietario != jugador){
-            propietario.recibe(alquilerBase);
-            jugador.pagaAlquiler(alquilerBase);
+        if(tienePropietario() && !esEsteElPropietario(jugador){
+            float precio = getPrecioAlquiler();
+            propietario.recibe(precio);
+            jugador.pagaAlquiler(precio);
         }
     }
 
