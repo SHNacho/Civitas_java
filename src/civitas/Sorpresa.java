@@ -24,6 +24,7 @@ public class Sorpresa{
         init();
         this.tipo = TipoSorpresa.IRCARCEL;
         texto = "Ir a la carcel";
+        this.tablero = tablero;
     }
     
     Sorpresa(TipoSorpresa tipo, Tablero tablero, int valor, String texto){
