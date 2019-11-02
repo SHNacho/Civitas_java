@@ -157,13 +157,20 @@ public class CivitasJuego {
     }
     
     private void inicializarMazoSorpresas(Tablero tablero){
-        mazo = new MazoSorpresas();
-        
         mazo.alMazo(new Sorpresa(TipoSorpresa.IRCARCEL, tablero));
-        
-        mazo.alMazo(new Sorpresa(TipoSorpresa.IRCASILLA, tablero,5,"A casilla 5"));
-            
-        mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, 10, "Por casa hotel"));
+        mazo.alMazo(new Sorpresa(TipoSorpresa.IRCASILLA, tablero,
+                                                3, "Ve a la casilla 3"));
+        mazo.alMazo(new Sorpresa(TipoSorpresa.IRCASILLA, tablero,
+                                                14, "Ve a la casilla 14"));
+        mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, 50,
+                                            "Cobra 50 por cada propiedad"));
+        mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR, 200, "Cobra 200"));
+        mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR, -200, "Paga 200"));
+        mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, -50, 
+                                            "Paga 50 por cada propiedad"));
+        mazo.alMazo(new Sorpresa(TipoSorpresa.SALIRCARCEL, mazo));
+        mazo.alMazo(new Sorpresa(TipoSorpresa.PORJUGADOR, 50, "Recibe 50 de cada jugador"));
+        mazo.alMazo(new Sorpresa(TipoSorpresa.PORJUGADOR, -50, "Paga 50 a cada jugador"));
         
     }
     
