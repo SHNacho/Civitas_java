@@ -55,8 +55,8 @@ public class TituloPropiedad {
         boolean comprada = false;
 
         if(!tienePropietario()){
-            jugador.paga(precioCompra);
             propietario = jugador;
+            jugador.paga(precioCompra);
             comprada = true;
         }
 

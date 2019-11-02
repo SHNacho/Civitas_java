@@ -65,7 +65,7 @@ public class Dado {
         return empieza;
     }
     
-    void setDebug (boolean d){
+    public void setDebug (boolean d){
         
         // Esto no se entiende bien el como meter el evento en diario
         

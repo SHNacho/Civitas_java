@@ -54,7 +54,7 @@ public class Jugador implements Comparable<Jugador> {
                 result = propiedad.cancelarHipoteca(this);
                 
                 if (result)
-                    Diario.getInstance().ocurreEvento("El jugador "+nombre+ " cancela la hipoteca de la propiedad "+ip);
+                    Diario.getInstance().ocurreEvento("El jugador "+nombre+ " cancela la hipoteca de la propiedad "+Integer.toString(ip));
             }
             
         }
@@ -90,6 +90,7 @@ public class Jugador implements Comparable<Jugador> {
                     propiedades.add(titulo);
                     Diario.getInstance().ocurreEvento("El jugador " + nombre + " compra la propiedad " + titulo.toString());
                 }
+                puedeComprar = false;
             }
         }
 
@@ -401,4 +402,15 @@ public class Jugador implements Comparable<Jugador> {
 
         return puedeVender;
     }
+    
+    public ArrayList<String> ListaPropiedades(){
+      ArrayList<String> arr = new ArrayList();
+      
+      String str;
+      for (TituloPropiedad propiedad : propiedades){
+        str = propiedad.getNombre();
+        arr.add(str);
+      }
+      return arr;
+      }
 }

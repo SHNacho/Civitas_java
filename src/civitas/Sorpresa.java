@@ -28,6 +28,7 @@ public class Sorpresa{
     
     Sorpresa(TipoSorpresa tipo, Tablero tablero, int valor, String texto){
         init();
+        this.tablero=tablero;
         this.tipo = TipoSorpresa.IRCASILLA;
         this.valor = valor;
         this.texto = texto;
@@ -42,6 +43,7 @@ public class Sorpresa{
     
     Sorpresa(TipoSorpresa tipo, MazoSorpresas mazo){
         init();
+        this.mazo = mazo;
         this.tipo= TipoSorpresa.SALIRCARCEL;
         texto = "Salir de la carcel";
     }
@@ -56,7 +58,7 @@ public class Sorpresa{
     
     void usada(){
       if (tipo ==TipoSorpresa.SALIRCARCEL)
-            mazo.habilitarCartaEspecial(this);
+            mazo.inhabilitarCartaEspecial(this);
     }
     
     void SalirdelMazo(){

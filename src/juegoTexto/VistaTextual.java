@@ -79,9 +79,15 @@ public class VistaTextual {
   }
 
   Respuestas comprar() {
+      
+    ArrayList<String> lista = new ArrayList();
+    
+    lista.add("SÍ");
+    
+    lista.add("NO");
     
     Respuestas opcion = this.menu("¿Quieres comprar esta calle?",
-                    lista["SI", "NO"]);
+                    lista);
       
     return (lista_respuestas[opcion]);
   }

@@ -249,10 +249,7 @@ public class CivitasJuego {
     
     private void pasarTurno(){
         
-        if (indiceJugadorActual== (jugadores.size()-1))
-            indiceJugadorActual = 0;
-        else
-            indiceJugadorActual+=1;
+         indiceJugadorActual = (indiceJugadorActual + 1) % jugadores.size();
     }
     
     private ArrayList<Jugador> ranking(){
