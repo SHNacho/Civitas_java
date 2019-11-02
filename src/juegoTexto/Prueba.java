@@ -10,13 +10,12 @@ import civitas.CivitasJuego;
 import civitas.Dado;
 import juegoTexto.Controlador;
 import juegoTexto.VistaTextual;
-import civitas.Dado;
 
 public class Prueba{
     public static void Juego(){
         VistaTextual vista = new VistaTextual();
         
-        ArrayList <String> nombres = new ArrayList();
+        ArrayList <String> nombres = new ArrayList<>();
         
         nombres.add("Julio");
         nombres.add("Nacho");

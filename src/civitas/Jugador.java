@@ -292,7 +292,7 @@ public class Jugador implements Comparable<Jugador> {
     }
 
     boolean pasaPorSalida(){
-        modificarSaldo(PasoPorSalida);
+        modificarSaldo(getPremioPasoSalida());
         Diario.getInstance().ocurreEvento("El jugador " + nombre + " ha pasado por salida");
         return true;
     }
@@ -312,18 +312,18 @@ public class Jugador implements Comparable<Jugador> {
     }
 
     private boolean PuedoSalirCarcelPagando(){
-        return (saldo >= PrecioLibertad);
+        return (saldo >= getPrecioLibertad());
     }
 
     private boolean PuedoEdificarCasa(TituloPropiedad propiedad){
-        return( propiedades.contains(propiedad) &&
-               (propiedad.getNumCasas() < CasasMax) && 
-               puedoGastar(propiedad.getPrecioEdificar()) );
+        return(propiedades.contains(propiedad) &&
+               propiedad.getNumCasas() < getCasasMax() && 
+               puedoGastar(propiedad.getPrecioEdificar()));
     }
 
     private boolean puedoEdificarHotel(TituloPropiedad propiedad){
-        return( propiedad.getNumHoteles() < HotelesMax &&
-               (propiedad.getNumCasas() >= CasasPorHotel) && 
+        return(propiedad.getNumHoteles() < getHotelesMax() &&
+               propiedad.getNumCasas() >= CasasPorHotel    && 
                puedoGastar(propiedad.getPrecioEdificar()));
     }
     
@@ -341,7 +341,7 @@ public class Jugador implements Comparable<Jugador> {
     boolean salirCarcelPagando(){
         boolean sale = false;
         if(encarcelado && PuedoSalirCarcelPagando()){
-            paga(PrecioLibertad);
+            paga(getPrecioLibertad());
             sale = true;
             encarcelado = false;
             Diario.getInstance().ocurreEvento("Jugador " + nombre + " ha salido de la carcel");
@@ -372,14 +372,16 @@ public class Jugador implements Comparable<Jugador> {
         String salvoconductoStr = (salvoconducto == null) ? "No" : "Sí";
         String propiedadesStr = Integer.toString(propiedades.size());
         String puedeComprarStr = puedeComprar ? "Sí" : "No";
-        String str = "JUGADOR \n" +
+        String str = "-----------------------------------\n" +
+                     "JUGADOR \n" +
                      "Nombre:         " + nombre + "\n" + 
                      "Saldo:          " + Float.toString(saldo) + "\n" +
                      "Casilla actual: " + Integer.toString(numCasillaActual) + "\n" +
                      "Encarcelado:    " + encarceladoStr + "\n" +
                      "Salvoconducto:  " + salvoconductoStr + "\n" +
                      "Propiedades:    " + propiedadesStr + "\n" +
-                     "Puede comprar   " + puedeComprarStr;
+                     "Puede comprar   " + puedeComprarStr + "\n" +
+                     "-----------------------------------\n";
 
         return str;
     }
