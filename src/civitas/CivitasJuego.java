@@ -183,7 +183,7 @@ public class CivitasJuego {
           
           // Añadimos en la posición 2 la casilla impuesto
           
-          tablero.añadeCasilla(new Casilla(300, "Impuesto"));
+          tablero.añadeCasilla(new Casilla(300f, "Impuesto"));
           
           // Añadimos en la posición 3 la calle 2
           
