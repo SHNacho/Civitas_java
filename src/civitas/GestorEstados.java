@@ -72,6 +72,8 @@ class GestorEstados {
           case GESTIONAR :
             siguiente = EstadosJuego.DESPUES_GESTIONAR;
             break;
+          default:
+            break;
         }
         break;
 

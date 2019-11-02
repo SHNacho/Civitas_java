@@ -132,7 +132,8 @@ public class Casilla {
 
     @Override
     public String toString(){
-        String str = "CASILLA: \n" +
+        String str = "-----------------------------------\n" +
+                     "CASILLA: \n" +
                      "Nombre:         " + nombre + "\n" +
                      "Tipo:           " + tipo + "\n";
         
@@ -151,6 +152,8 @@ public class Casilla {
             default:
                 break;
         }
+
+        str += "-----------------------------------\n";
 
         return str;
     }

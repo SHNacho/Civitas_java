@@ -2,14 +2,12 @@ package juegoTexto;
 
 import civitas.CivitasJuego;
 import civitas.Diario;
-import civitas.Civitas;
+import civitas.GestionesInmobiliarias;
+import civitas.OperacionesJuego;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
-import civitas.Casilla;
-import civitas.Jugador;
-import civitas.OperacionesJuego;
-import civitas.TituloPropiedad;
+
 
 public class VistaTextual {
   
@@ -80,23 +78,27 @@ public class VistaTextual {
 
   Respuestas comprar() {
       
-    ArrayList<String> lista = new ArrayList();
+    ArrayList<String> lista = new ArrayList<>();
     
     lista.add("SÍ");
     
     lista.add("NO");
     
-    Respuestas opcion = this.menu("¿Quieres comprar esta calle?",
+    int opcion = this.menu("¿Quieres comprar esta calle?",
                     lista);
       
-    return (lista_respuestas[opcion]);
+    return (Respuestas.values()[opcion]);
   }
 
   void gestionar () {
       iGestion = this.menu("¿Qué gestión inmoviliaria quieres hacer?",
-                    lista["VENDER", "HIPOTECAR", "CANCELAR HIPOTECA",
-                          "CONSTRUIR CASA", "CONSTRUIR HOTEL", "TERMINAR"] )
-      //Falta por hacer que pregunte sobre que propiedad quiere hacer la gestión
+      new ArrayList<> (Arrays.asList("VENDER", "HIPOTECAR", "CANCELAR HIPOTECA",
+                          "CONSTRUIR CASA", "CONSTRUIR HOTEL", "TERMINAR")));
+
+      if(GestionesInmobiliarias.values()[iGestion] != GestionesInmobiliarias.TERMINAR){
+        iPropiedad = menu("¿Sobre qué propiedad quieres hacer la gestión?",
+                          juegoModel.getJugadorActual().ListaPropiedades());
+      }
   }
   
   public int getGestion(){

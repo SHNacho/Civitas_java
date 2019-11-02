@@ -60,7 +60,7 @@ public class Jugador implements Comparable<Jugador> {
         }
         return result;          
     }
-    //Probar
+
     int cantidadCasasHoteles(){
         int cantidad = 0;
         for(TituloPropiedad propiedad : propiedades){
@@ -404,7 +404,7 @@ public class Jugador implements Comparable<Jugador> {
     }
     
     public ArrayList<String> ListaPropiedades(){
-      ArrayList<String> arr = new ArrayList();
+      ArrayList<String> arr = new ArrayList<>();
       
       String str;
       for (TituloPropiedad propiedad : propiedades){
