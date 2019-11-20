@@ -322,9 +322,9 @@ public class Jugador implements Comparable<Jugador> {
     }
 
     private boolean puedoEdificarHotel(TituloPropiedad propiedad){
-        return( propiedades.contains(propiedad) &&
-               (propiedad.getNumCasas() < CasasMax) && 
-               puedoGastar(propiedad.getPrecioEdificar()*5));
+        return( propiedad.getNumHoteles() < HotelesMax &&
+               (propiedad.getNumCasas() >= CasasPorHotel) && 
+               puedoGastar(propiedad.getPrecioEdificar()));
     }
     
     private boolean puedoGastar(float precio){

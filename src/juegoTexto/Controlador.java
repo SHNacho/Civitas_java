@@ -65,7 +65,9 @@ class Controlador{
                                 break;
                             case TERMINAR:
                                 juego.siguientePasoCompletado(operacion);
+                                break;
                         }
+                        break;
                     
                     case SALIR_CARCEL:
                         SalidasCarcel salida = vista.salirCarcel();
@@ -76,6 +78,10 @@ class Controlador{
                             juego.salirCarcelTirando();
 
                         juego.siguientePasoCompletado(operacion);
+                        break;
+
+                    default:
+                        break;
                 }
             }
 

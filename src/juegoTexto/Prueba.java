@@ -32,7 +32,7 @@ public class Prueba{
         control.juega();
     }
     
-    public static void main(){
+    public static void main(String[] args){
         Prueba.Juego();
     }
 }
