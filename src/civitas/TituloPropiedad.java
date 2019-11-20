@@ -177,16 +177,16 @@ public class TituloPropiedad {
 
     public String toString(){
 
-        String nombre_propietario = "Sin propietario",
-               hipotecado_str     = "No";
+        // String nombre_propietario = "Sin propietario",
+        //        hipotecado_str     = "No";
 
-        if(hipotecado) {
-            hipotecado_str = "Sí";
-        }
+        // if(hipotecado) {
+        //     hipotecado_str = "Sí";
+        // }
 
-        if(tienePropietario()){
-            nombre_propietario = propietario.getNombre();
-        }
+        // if(tienePropietario()){
+        //     nombre_propietario = propietario.getNombre();
+        // }
 
 
         // String str = "TituloPropiedad" + "\n" +
