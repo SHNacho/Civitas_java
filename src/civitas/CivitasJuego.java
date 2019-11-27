@@ -201,7 +201,7 @@ public class CivitasJuego {
         
         // Añadimos en la posición 7 la sorpresa 1
         
-        tablero.añadeCasilla(new Casilla(mazo, "Sorpresa 1"));
+        tablero.añadeCasilla(new CasillaSorpresa(mazo, "Sorpresa 1"));
         
         // Añadimos en la posición 8 la calle 5
         
@@ -225,7 +225,7 @@ public class CivitasJuego {
         
         // Añadimos en la posición 13 la sorpresa 2
         
-        tablero.añadeCasilla(new Casilla(mazo, "Sorpresa 2"));
+        tablero.añadeCasilla(new CasillaSorpresa(mazo, "Sorpresa 2"));
         
         // Añadimos en la posición 14 la calle 9
         
@@ -249,7 +249,7 @@ public class CivitasJuego {
         
         // Añadimos en la posición 19 la sorpresa 3
         
-        tablero.añadeCasilla(new Casilla(mazo, "Sorpresa3"));
+        tablero.añadeCasilla(new CasillaSorpresa(mazo, "Sorpresa3"));
     
     // Añadimos casillas más adelante
     }
