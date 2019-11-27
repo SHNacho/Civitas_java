@@ -65,7 +65,7 @@ public class CivitasJuego {
     public boolean comprar(){
         Jugador jugadorActual = jugadores.get(indiceJugadorActual);
         int numCasilla = jugadorActual.getNumCasillaActual();
-        Casilla casilla = tablero.getCasilla(numCasilla);
+        CasillaCalle casilla = (CasillaCalle)tablero.getCasilla(numCasilla);
         TituloPropiedad titulo = casilla.getTituloPropiedad();
         boolean res = jugadorActual.comprar(titulo);
         return res;
@@ -179,25 +179,25 @@ public class CivitasJuego {
         
         // Añadimos en la posición 1 la calle 1
         
-        tablero.añadeCasilla(new Casilla_calle(new TituloPropiedad("Calle 1", 100, 0.05f, 200, 400, 300)));
+        tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 1", 100, 0.05f, 200, 400, 300)));
         
         // Añadimos en la posición 2 la casilla impuesto
         
-        tablero.añadeCasilla(new Casilla_impuesto(300f, "Impuesto"));
+        tablero.añadeCasilla(new CasillaImpuesto(300f, "Impuesto"));
         
         // Añadimos en la posición 3 la calle 2
         
-        tablero.añadeCasilla(new Casilla_calle(new TituloPropiedad("Calle 2", 225, 0.075f, 450, 900, 675)));
+        tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 2", 225, 0.075f, 450, 900, 675)));
         
         // Añadimos en la posición 4 la calle 3
         
-        tablero.añadeCasilla(new Casilla_calle(new TituloPropiedad("Calle 3", 150, 0.05f, 300, 600, 450)));
+        tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 3", 150, 0.05f, 300, 600, 450)));
         
         // En la posición 5 ya está la cárcel
         
         // Añadimos en la posición 6 la calle 4
         
-        tablero.añadeCasilla(new Casilla_calle(new TituloPropiedad("Calle 4", 300, 0.075f, 600, 1200, 900)));
+        tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 4", 300, 0.075f, 600, 1200, 900)));
         
         // Añadimos en la posición 7 la sorpresa 1
         
@@ -205,11 +205,11 @@ public class CivitasJuego {
         
         // Añadimos en la posición 8 la calle 5
         
-        tablero.añadeCasilla(new Casilla_calle(new TituloPropiedad("Calle 5", 125, 0.05f, 250, 500, 375)));
+        tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 5", 125, 0.05f, 250, 500, 375)));
         
         // Añadimos en la posición 9 la calle 6
         
-        tablero.añadeCasilla(new Casilla_calle(new TituloPropiedad("Calle 6", 200, 0.05f, 400, 800, 600)));
+        tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 6", 200, 0.05f, 400, 800, 600)));
         
         // Añadimos en la posición 10 el parking
         
@@ -217,11 +217,11 @@ public class CivitasJuego {
         
         // Añadimos en la posición 11 la calle 7
         
-        tablero.añadeCasilla(new Casilla_calle(new TituloPropiedad("Calle 7", 400, 0.1f, 800, 1600, 1200)));
+        tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 7", 400, 0.1f, 800, 1600, 1200)));
         
         // Añadimos en la posición 12 la calle 8
         
-        tablero.añadeCasilla(new Casilla_calle(new TituloPropiedad("Calle 8", 250, 0.075f, 500, 1000, 750)));
+        tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 8", 250, 0.075f, 500, 1000, 750)));
         
         // Añadimos en la posición 13 la sorpresa 2
         
@@ -229,7 +229,7 @@ public class CivitasJuego {
         
         // Añadimos en la posición 14 la calle 9
         
-        tablero.añadeCasilla(new Casilla_calle(new TituloPropiedad("Calle 9", 175, 0.05f, 350, 700, 525)));
+        tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 9", 175, 0.05f, 350, 700, 525)));
         
         // Añadimos en la posición 15 el juez
         
@@ -237,15 +237,15 @@ public class CivitasJuego {
         
         // Añadimos en la posición 16 la calle 10
         
-        tablero.añadeCasilla(new Casilla_calle(new TituloPropiedad("Calle 10", 200, 0.05f, 400, 800, 600)));
+        tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 10", 200, 0.05f, 400, 800, 600)));
         
         // Añadimos en la posición 17 la calle 11
         
-        tablero.añadeCasilla(new Casilla_calle(new TituloPropiedad("Calle 11", 350, 0.1f, 700, 1400, 1050)));
+        tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 11", 350, 0.1f, 700, 1400, 1050)));
         
         // Añadimos en la posición 18 la calle 12
         
-        tablero.añadeCasilla(new Casilla_calle(new TituloPropiedad("Calle 12", 300, 0.075f, 600, 1200, 900)));
+        tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 12", 300, 0.075f, 600, 1200, 900)));
         
         // Añadimos en la posición 19 la sorpresa 3
         

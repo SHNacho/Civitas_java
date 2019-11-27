@@ -86,11 +86,12 @@ public class Tablero {
     
     void añadeJuez (){
         
-        Casilla juez = new Casilla (numCasillaCarcel ,"Juez");
+        Casilla juez = new CasillaJuez (numCasillaCarcel ,"Juez");
         
-        if (tieneJuez == false)
-            casillas.add(juez);
+        if (tieneJuez == false){
+            añadeCasilla(juez);
             tieneJuez = true;
+        }
     }
     
     Casilla getCasilla (int numCasilla){

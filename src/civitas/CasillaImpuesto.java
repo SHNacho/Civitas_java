@@ -11,11 +11,11 @@ import java.util.ArrayList;
  *
  * @author juliocamposrodriguez
  */
-public class Casilla_impuesto extends Casilla {
+public class CasillaImpuesto extends Casilla {
     
     private float importe;
     
-    Casilla_impuesto(float cantidad, String nombre){
+    CasillaImpuesto(float cantidad, String nombre){
         super(nombre);
         importe = cantidad;
     }
