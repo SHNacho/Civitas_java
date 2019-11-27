@@ -16,7 +16,7 @@ public class Jugador implements Comparable<Jugador> {
     private int numCasillaActual;
     private boolean puedeComprar;
     private float saldo;
-    private Sorpresa salvoconducto;
+    protected Sorpresa salvoconducto;
     private ArrayList<TituloPropiedad> propiedades;
 
     Jugador (String nombre){
@@ -29,7 +29,7 @@ public class Jugador implements Comparable<Jugador> {
         propiedades = new ArrayList<>();
     }
 
-    private Jugador(Jugador otro){
+    Jugador (Jugador otro){
         encarcelado = otro.encarcelado;
         nombre = otro.nombre;
         numCasillaActual = otro.numCasillaActual;
@@ -144,7 +144,7 @@ public class Jugador implements Comparable<Jugador> {
         return result;  
     }
 
-    private boolean debeSerEncarcelado(){
+    protected boolean debeSerEncarcelado(){
         boolean debeSerEncarcelado = false;
 
         if(!encarcelado){
@@ -177,7 +177,11 @@ public class Jugador implements Comparable<Jugador> {
         return (ip < propiedades.size());
     }
 
-    private int getCasasMax(){
+    /*protected int getCasasMax(){
+        return CasasMax;
+    }*/    
+    
+    protected static int getCasasMax(){
         return CasasMax;
     }
 
@@ -185,7 +189,7 @@ public class Jugador implements Comparable<Jugador> {
         return CasasPorHotel;
     }
 
-    private int getHotelesMax(){
+    protected static int getHotelesMax(){
         return HotelesMax;
     }
     

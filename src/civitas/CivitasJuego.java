@@ -65,7 +65,7 @@ public class CivitasJuego {
     public boolean comprar(){
         Jugador jugadorActual = jugadores.get(indiceJugadorActual);
         int numCasilla = jugadorActual.getNumCasillaActual();
-        Casilla casilla = tablero.getCasilla(numCasilla);
+        Casilla_calle casilla = tablero.getCasilla(numCasilla);
         TituloPropiedad titulo = casilla.getTituloPropiedad();
         boolean res = jugadorActual.comprar(titulo);
         return res;

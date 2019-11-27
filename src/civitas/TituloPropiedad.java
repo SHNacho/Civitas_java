@@ -32,7 +32,7 @@ public class TituloPropiedad {
     }
 
     void actualizaPropietarioPorConversion(Jugador jugador){
-        
+        propietario = jugador;
     }
 
     boolean cancelarHipoteca(Jugador jugador){
