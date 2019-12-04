@@ -6,8 +6,8 @@ public class SorpresaSalirCarcel extends Sorpresa{
     
     private MazoSorpresas mazo;
 
-    SorpresaSalirCarcel(MazoSorpresas mazo, String texto){
-        super(texto);
+    SorpresaSalirCarcel(MazoSorpresas mazo){
+        super("Sal de la carcel");
         this.mazo = mazo;
     }
 
