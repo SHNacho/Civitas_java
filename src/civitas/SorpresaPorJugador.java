@@ -24,14 +24,14 @@ public class SorpresaPorJugador extends Sorpresa{
             
             informe (actual,todos);
             
-            Sorpresa sorpresa = new SorpresaPagarCobrar((valor*(-1)),"Pagarcobrar");
+            SorpresaPagarCobrar sorpresa = new SorpresaPagarCobrar((valor*(-1)),"Pagarcobrar");
             
             for (int i = 0; i < todos.size(); i++){
                 if (i != actual)
                     sorpresa.aplicarAJugador(i, todos);
             }
             
-            Sorpresa sorpresa2 = new SorpresaPagarCobrar((valor*(todos.size()-1)),"Pagarcobrar");
+            SorpresaPagarCobrar sorpresa2 = new SorpresaPagarCobrar((valor*(todos.size()-1)),"Pagarcobrar");
             
             sorpresa2.aplicarAJugador(actual, todos);
         }
