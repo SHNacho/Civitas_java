@@ -12,25 +12,27 @@ import java.util.ArrayList;
  *
  * @author juliocamposrodriguez
  */
-public class Sorpresa_convertir_jugador extends Sorpresa {
+public class SorpresaConvertirJugador extends Sorpresa {
     
     private int valor;
     
-    Sorpresa_convertir_jugador(int cantidad, String texto){
+    SorpresaConvertirJugador(int cantidad, String texto){
         super(texto);
         
         valor = cantidad;
     }
     
     @Override
-    public toString(){
+    public String toString(){
         String str = "'Sorpresa convertir jugador: " + texto + "'";
+        return str;
     }
     
     public void aplicarAJugador(int actual,ArrayList<Jugador> todos){
         if (jugadorCorrecto(actual,todos)){
+            Jugador jugadorActual = todos.get(actual);
             informe(actual,todos);
-            todos.get(actual) = JugadorEspeculador.new(todos.get(actual), valor);
+            jugadorActual = new JugadorEspeculador(todos.get(actual), valor);
         }
     }
 }
