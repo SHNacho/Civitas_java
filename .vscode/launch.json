@@ -4,25 +4,13 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - Prueba",
-            "request": "launch",
-            "mainClass": "juegoTexto.Prueba",
-            "projectName": "Civitas_java_cb7fb7c3"
-        },
+
         {
             "type": "java",
             "name": "Debug (Launch) - Current File",
             "request": "launch",
             "mainClass": "${file}",
-            "console": "externalTerminal"
-        },
-        {
-            "type": "java",
-            "name": "Debug (Launch)-Civitas",
-            "request": "launch",
-            "mainClass": "civitas.Civitas"
+            "console": "integratedTerminal"
         }
     ]
 }
