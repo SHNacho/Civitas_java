@@ -37,7 +37,7 @@ public class CivitasJuego {
         gestorEstados = new GestorEstados();
         estado = gestorEstados.estadoInicial();
         indiceJugadorActual = Dado.getInstance().quienEmpieza(jugadores.size());
-        mazo = new MazoSorpresas();
+        mazo = new MazoSorpresas(true);
         tablero = new Tablero (5);
         inicializarMazoSorpresas (tablero);        
         inicializarTablero(mazo);
@@ -157,9 +157,11 @@ public class CivitasJuego {
     }
     
     private void inicializarMazoSorpresas(Tablero tablero){
+        mazo.alMazo(new SorpresaIrCasilla(tablero, 14, "Ve a la casilla 14"));
+        mazo.alMazo(new SorpresaConvertirJugador(200, "Convertir Jugador"));
         mazo.alMazo(new SorpresaIrCarcel(tablero));
         mazo.alMazo(new SorpresaIrCasilla(tablero, 3, "Ve a la casilla 3"));
-        mazo.alMazo(new SorpresaIrCasilla(tablero, 14, "Ve a la casilla 14"));
+        
         mazo.alMazo(new SorpresaPorCasaHotel(50, "Cobra 50 por cada propiedad"));
         mazo.alMazo(new SorpresaPagarCobrar(200, "Cobra 200"));
         mazo.alMazo(new SorpresaPagarCobrar(-200, "Paga 200"));
@@ -172,55 +174,32 @@ public class CivitasJuego {
     
     private void inicializarTablero(MazoSorpresas mazo){
         // Salida ya se añade en la posición 0
-        
+
         // Añadimos en la posición 1 la calle 1
-        
         tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 1", 100, 0.05f, 200, 400, 300)));
-        
-        // Añadimos en la posición 2 la casilla impuesto
-        
-        tablero.añadeCasilla(new CasillaImpuesto(300f, "Impuesto"));
-        
-        // Añadimos en la posición 3 la calle 2
-        
-        tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 2", 225, 0.075f, 450, 900, 675)));
-        
-        // Añadimos en la posición 4 la calle 3
-        
-        tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 3", 150, 0.05f, 300, 600, 450)));
-        
-        // En la posición 5 ya está la cárcel
-        
-        // Añadimos en la posición 6 la calle 4
-        
-        tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 4", 300, 0.075f, 600, 1200, 900)));
-        
-        // Añadimos en la posición 7 la sorpresa 1
-        
         tablero.añadeCasilla(new CasillaSorpresa(mazo, "Sorpresa 1"));
-        
+
+        // Añadimos en la posición 2 la casilla impuesto
+        tablero.añadeCasilla(new CasillaImpuesto(300f, "Impuesto"));
+        // Añadimos en la posición 3 la calle 2
+        tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 2", 225, 0.075f, 450, 900, 675)));
+        // Añadimos en la posición 4 la calle 3
+        tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 3", 150, 0.05f, 300, 600, 450)));
+        // En la posición 5 ya está la cárcel
+        // Añadimos en la posición 6 la calle 4
+        tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 4", 300, 0.075f, 600, 1200, 900)));
+        // Añadimos en la posición 7 la sorpresa 1
         // Añadimos en la posición 8 la calle 5
-        
         tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 5", 125, 0.05f, 250, 500, 375)));
-        
         // Añadimos en la posición 9 la calle 6
-        
         tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 6", 200, 0.05f, 400, 800, 600)));
-        
         // Añadimos en la posición 10 el parking
-        
         tablero.añadeCasilla(new Casilla("Parking"));
-        
         // Añadimos en la posición 11 la calle 7
-        
         tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 7", 400, 0.1f, 800, 1600, 1200)));
-        
         // Añadimos en la posición 12 la calle 8
-        
         tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 8", 250, 0.075f, 500, 1000, 750)));
-        
         // Añadimos en la posición 13 la sorpresa 2
-        
         tablero.añadeCasilla(new CasillaSorpresa(mazo, "Sorpresa 2"));
         
         // Añadimos en la posición 14 la calle 9

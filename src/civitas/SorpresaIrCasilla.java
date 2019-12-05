@@ -15,7 +15,7 @@ public class SorpresaIrCasilla extends Sorpresa{
 
     @Override
     public String toString(){
-        String str = "IR CASILLA /n" + texto; 
+        String str = "IR CASILLA \n" + texto; 
         return str;
     }
 
@@ -28,7 +28,7 @@ public class SorpresaIrCasilla extends Sorpresa{
             
             // Calculamos la tirada con el valor de sorpresa y con la casilla actual
             int tirada = tablero.calcularTirada(casillaActual, valor);
-            int nuevaPos=tablero.nuevaPosicion(actual, tirada);
+            int nuevaPos=tablero.nuevaPosicion(casillaActual, tirada);
             todos.get(actual).moverACasilla(nuevaPos);
             Casilla casilla = tablero.getCasilla(valor);
             casilla.recibeJugador(actual,todos);
