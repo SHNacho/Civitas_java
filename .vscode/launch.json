@@ -9,7 +9,16 @@
             "name": "CodeLens (Launch) - Prueba",
             "request": "launch",
             "mainClass": "juegoTexto.Prueba",
+            "projectName": "Civitas_java_159ead32"
         },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Prueba",
+            "request": "launch",
+            "mainClass": "juegoTexto.Prueba",
+            "projectName": "Civitas_java_cb7fb7c3"
+        },
+
         {
             "type": "java",
             "name": "Debug (Launch) - Current File",

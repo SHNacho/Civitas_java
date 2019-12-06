@@ -16,9 +16,9 @@ public class CasillaSorpresa extends Casilla {
     @Override
     void recibeJugador(int actual, ArrayList<Jugador> todos){
         if(jugadorCorrecto(actual, todos)){
-            sorpresa = mazo.siguiente();
             informe(actual, todos);
             sorpresa.aplicarAJugador(actual, todos);
+            sorpresa = mazo.siguiente();
         }
     }
 
@@ -27,7 +27,8 @@ public class CasillaSorpresa extends Casilla {
         String str = "-----------------------------------\n" +
                      "CASILLA: \n" +
                      "Nombre:         " + this.getNombre() + "\n" +
-                     "Tipo:           " + "Sorpresa" + "\n";
+                     "Tipo:           " + "Sorpresa" + "\n" +
+                     sorpresa.toString() + "\n";
         str += "-----------------------------------\n";
 
         return str;

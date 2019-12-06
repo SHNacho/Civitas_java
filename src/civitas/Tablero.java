@@ -104,19 +104,15 @@ public class Tablero {
     
     int nuevaPosicion (int actual, int tirada){
         
-        int nueva = -1;
+        int posicion = actual+tirada;
+        int tamTablero = casillas.size();
         
-        if (correcto() == false)
-            return nueva;
-        
-        nueva = actual + tirada;
-        
-        if (nueva >= casillas.size()){
-            nueva = nueva - casillas.size();
+        if(posicion>=tamTablero){
+            posicion = posicion%tamTablero;
             porSalida++;
         }
-        
-        return nueva;
+
+        return posicion;
     }
     
     int calcularTirada (int origen, int destino){
@@ -126,9 +122,7 @@ public class Tablero {
         tirada = destino - origen;
         
         if (tirada < 0){
-            porSalida++;
             tirada += casillas.size();
-
         }
         return tirada;
     }
