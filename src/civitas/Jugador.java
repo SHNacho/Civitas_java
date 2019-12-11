@@ -2,6 +2,7 @@ package civitas;
 
 import java.util.ArrayList;
 import java.lang.Float;
+import GUI.Dado;
 
 public class Jugador implements Comparable<Jugador> {
     private static int CasasMax         = 4;
