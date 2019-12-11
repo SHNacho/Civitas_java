@@ -11,11 +11,11 @@ import java.util.ArrayList;
  *
  * @author juliocamposrodriguez
  */
-public class Casilla_calle extends Casilla {
+public class CasillaCalle extends Casilla {
     
     private TituloPropiedad  tituloPropiedad;
     
-    Casilla_calle(TituloPropiedad titulo){
+    CasillaCalle(TituloPropiedad titulo){
         super(titulo.getNombre());
         tituloPropiedad = titulo;
     }
@@ -24,6 +24,7 @@ public class Casilla_calle extends Casilla {
         return tituloPropiedad;
     }
     
+    @Override
     void recibeJugador(int actual, ArrayList<Jugador> todos){
         if(jugadorCorrecto(actual, todos)){
             informe(actual, todos);
