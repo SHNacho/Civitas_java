@@ -110,7 +110,7 @@ public class Dado extends JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jL_dado = new javax.swing.JLabel();
+        jL_dice = new javax.swing.JLabel();
         jL_texto = new javax.swing.JLabel();
         jB_OK = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -121,17 +121,17 @@ public class Dado extends JDialog {
         setPreferredSize(new java.awt.Dimension(300, 280));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jL_dado.setBackground(new java.awt.Color(255, 255, 255));
-        jL_dado.setFont(new java.awt.Font("Trebuchet MS", 2, 48)); // NOI18N
-        jL_dado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jL_dado.setText("1");
-        jL_dado.setOpaque(true);
-        jL_dado.addMouseListener(new java.awt.event.MouseAdapter() {
+        jL_dice.setBackground(new java.awt.Color(255, 255, 255));
+        jL_dice.setFont(new java.awt.Font("Trebuchet MS", 2, 48)); // NOI18N
+        jL_dice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jL_dice.setText("1");
+        jL_dice.setOpaque(true);
+        jL_dice.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jL_dadoMouseClicked(evt);
+                jL_diceMouseClicked(evt);
             }
         });
-        getContentPane().add(jL_dado, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 110, 100));
+        getContentPane().add(jL_dice, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 110, 100));
 
         jL_texto.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jL_texto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -168,7 +168,7 @@ public class Dado extends JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jB_OK;
-    private javax.swing.JLabel jL_dado;
+    private javax.swing.JLabel jL_dice;
     private javax.swing.JLabel jL_texto;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
