@@ -15,7 +15,7 @@ import civitas.CivitasJuego;
  */
 public class TestP5 {
     
-    public static void main(){
+    public static void main(String[] args){
         CivitasView vistaCivitas = new CivitasView();
         
         Dado.createInstance(vistaCivitas);
