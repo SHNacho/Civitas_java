@@ -1,7 +1,2 @@
-build
-dist
-nbproject
-test
-manifest.mf
-.vscode
-.settings
+*
+!src
