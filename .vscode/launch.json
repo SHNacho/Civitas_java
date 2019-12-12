@@ -6,26 +6,37 @@
     "configurations": [
         {
             "type": "java",
-            "name": "CodeLens (Launch) - Prueba",
-            "request": "launch",
-            "mainClass": "juegoTexto.Prueba",
-            "projectName": "Civitas_java_159ead32"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - Prueba",
-            "request": "launch",
-            "mainClass": "juegoTexto.Prueba",
-            "projectName": "Civitas_java_cb7fb7c3"
-        },
-
-        {
-            "type": "java",
             "name": "Debug (Launch) - Current File",
             "request": "launch",
-            "mainClass": "${file}",
-            "console": "integratedTerminal",
-            "classPaths":["src/juegoTexto", "src/civitas"]
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Civitas<Civitas>",
+            "request": "launch",
+            "mainClass": "civitas.Civitas",
+            "projectName": "Civitas"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestP1<Civitas>",
+            "request": "launch",
+            "mainClass": "civitas.TestP1",
+            "projectName": "Civitas"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestP2<Civitas>",
+            "request": "launch",
+            "mainClass": "civitas.TestP2",
+            "projectName": "Civitas"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Prueba<Civitas>",
+            "request": "launch",
+            "mainClass": "juegoTexto.Prueba",
+            "projectName": "Civitas"
         }
     ]
 }

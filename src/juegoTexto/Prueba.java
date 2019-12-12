@@ -4,8 +4,6 @@ package juegoTexto;
 import java.util.ArrayList;
 import civitas.CivitasJuego;
 import civitas.Dado;
-import juegoTexto.Controlador;
-import juegoTexto.VistaTextual;
 
 public class Prueba{
     public static void Juego(){
