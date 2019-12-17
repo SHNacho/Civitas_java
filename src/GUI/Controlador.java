@@ -15,12 +15,12 @@ class Controlador{
         this.vista = vista;
     }
 
-    /*void juega(){
+    void juega(){
         vista.setCivitasJuego(juego);
 
         while(!juego.finalDelJuego()){
             vista.actualizarVista();
-            vista.pausa();
+            //vista.pausa();
             OperacionesJuego operacion = juego.siguientePaso();
             vista.mostrarSiguienteOperacion(operacion);
 
@@ -80,7 +80,6 @@ class Controlador{
 
                         juego.siguientePasoCompletado(operacion);
                         break;
-
                     default:
                         break;
                 }
@@ -88,5 +87,5 @@ class Controlador{
 
         }
         juego.actualizarInfo();
-    }*/
+    }
 } 

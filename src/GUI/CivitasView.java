@@ -7,22 +7,111 @@ package GUI;
 
 import civitas.CivitasJuego;
 
+import civitas.OperacionesJuego;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author juliocamposrodriguez
  */
 public class CivitasView extends javax.swing.JFrame {
+    
     CivitasJuego juego;
-    /**
+    JugadorPanel jugadorPanel;
+    GestionarDialog gestionarD;
+    
+   /**
      * Creates new form CivitasView
      */
     public CivitasView() {
         initComponents();
+        
+        jugadorPanel = new JugadorPanel();
+        
+        contenedorVistaJugador.add(jugadorPanel);
+        
+        repaint();
+        
+        revalidate();
     }
     
     public void setCivitasJuego(CivitasJuego game){
         juego = game;
         setVisible(true);
+    }
+    
+    public void actualizarVista(){
+        jugadorPanel.setJugador(juego.getJugadorActual());
+        
+        texto_casilla.setText(juego.getCasillaActual().toString());
+        
+        ranking.setVisible(false);
+        
+        area_ranking.setVisible(false);
+        
+        if (juego.finalDelJuego()){
+            
+            ranking.setVisible(true);
+            area_ranking.setVisible(true);
+            
+            String rank = juego.mostrar_ranking();
+            
+            area_ranking.setText(rank);
+        }
+        
+        repaint();
+        
+        revalidate();
+    }
+    
+    public void mostrarSiguienteOperacion(OperacionesJuego operacion){
+        
+        texto_operacion.setText(operacion.toString());
+        
+        actualizarVista();
+    }
+    
+    void mostrarEventos(){
+        DiarioDialog diarioD = new DiarioDialog(this);
+    }
+    
+    public Respuestas comprar(){
+        int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres comprar la calle actual?", "Compra", JOptionPane.YES_NO_OPTION);
+        
+        if (opcion==0)
+            return Respuestas.SI;
+        else
+            return Respuestas.NO;
+    }
+    
+    public SalidasCarcel salirCarcel(){
+        String[] opciones = {"Pagando", "Tirando"};
+        
+        int respuesta = JOptionPane.showOptionDialog(null, "¿Cómo quieres salir de la carcel?", "Salir de la carcel", 
+                JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
+        
+        if (respuesta == 0)
+            return SalidasCarcel.PAGANDO;
+        else
+            return SalidasCarcel.TIRANDO;
+    }
+    
+    public int getGestion(){
+        return gestionarD.getGestion();
+    }
+    
+    public int getPropiedad(){
+        return gestionarD.getPropiedad();
+    }
+    
+    public void gestionar(){
+        gestionarD.gestionar(juego.getJugadorActual());
+        
+        gestionarD.pack();
+        gestionarD.repaint();
+        gestionarD.revalidate();
+        
+        gestionarD.setVisible(true);
     }
 
     /**
@@ -35,6 +124,13 @@ public class CivitasView extends javax.swing.JFrame {
     private void initComponents() {
 
         Titulo = new javax.swing.JLabel();
+        contenedorVistaJugador = new javax.swing.JPanel();
+        texto_casilla = new javax.swing.JTextField();
+        siguiente_operacion = new javax.swing.JLabel();
+        texto_operacion = new javax.swing.JTextField();
+        ranking = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        area_ranking = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,24 +138,80 @@ public class CivitasView extends javax.swing.JFrame {
         Titulo.setText("CivitasJuego");
         Titulo.setEnabled(false);
 
+        texto_casilla.setText("jTextField1");
+        texto_casilla.setEnabled(false);
+
+        siguiente_operacion.setText("Siguiente operación");
+        siguiente_operacion.setEnabled(false);
+
+        texto_operacion.setText("jTextField1");
+        texto_operacion.setEnabled(false);
+        texto_operacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                texto_operacionActionPerformed(evt);
+            }
+        });
+
+        ranking.setText("Ranking");
+
+        area_ranking.setColumns(20);
+        area_ranking.setRows(5);
+        jScrollPane1.setViewportView(area_ranking);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(144, 144, 144)
-                .addComponent(Titulo)
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(144, 144, 144)
+                        .addComponent(Titulo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(contenedorVistaJugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(siguiente_operacion)
+                                        .addGap(43, 43, 43)
+                                        .addComponent(texto_operacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(texto_casilla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(152, 152, 152)
+                                        .addComponent(ranking))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 278, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(contenedorVistaJugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(texto_casilla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(siguiente_operacion)
+                    .addComponent(texto_operacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addComponent(ranking)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void texto_operacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_texto_operacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_texto_operacionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -98,5 +250,12 @@ public class CivitasView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Titulo;
+    private javax.swing.JTextArea area_ranking;
+    private javax.swing.JPanel contenedorVistaJugador;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel ranking;
+    private javax.swing.JLabel siguiente_operacion;
+    private javax.swing.JTextField texto_casilla;
+    private javax.swing.JTextField texto_operacion;
     // End of variables declaration//GEN-END:variables
 }

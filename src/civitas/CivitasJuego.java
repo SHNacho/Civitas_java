@@ -242,6 +242,17 @@ public class CivitasJuego {
         
         return jugadores;
     }
+    
+    public String mostrar_ranking(){
+        ranking();
+        
+        String rank = "";
+        
+        for (Jugador j : jugadores)
+            rank += j.getNombre() + '\n';
+        
+        return rank;
+    }
 
     private void avanzaJugador(){
         Jugador jugadorActual = jugadores.get(indiceJugadorActual);

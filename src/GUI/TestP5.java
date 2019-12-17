@@ -34,8 +34,8 @@ public class TestP5 {
         
         Controlador controlador = new Controlador(juego, vistaCivitas);
         
-        vistaCivitas.setCivitasJuego(juego);
+        vistaCivitas.setCivitasJuego(juego);  
         
-    
+        controlador.juega();
     }
 }

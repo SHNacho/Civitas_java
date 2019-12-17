@@ -194,7 +194,7 @@ public class Jugador implements Comparable<Jugador> {
         return HotelesMax;
     }
     
-    String getNombre(){
+    public String getNombre(){
         return nombre;
     }
 
@@ -210,7 +210,7 @@ public class Jugador implements Comparable<Jugador> {
         return PasoPorSalida;
     }
     
-    protected ArrayList<TituloPropiedad> getPropiedades(){
+    public ArrayList<TituloPropiedad> getPropiedades(){
         return propiedades;
     }
 
@@ -218,7 +218,7 @@ public class Jugador implements Comparable<Jugador> {
         return puedeComprar;
     }
 
-    protected float getSaldo(){
+    public float getSaldo(){
         return saldo;
     }
 

@@ -65,7 +65,7 @@ public class JugadorEspeculador extends Jugador {
         return encarcelado;
     }
     
-    boolean pagaImpuesto(int cantidad){
+    boolean pagaImpuesto(float cantidad){
         return super.pagaImpuesto(cantidad/factorEspeculador);
     }
 }

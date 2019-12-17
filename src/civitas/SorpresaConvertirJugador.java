@@ -28,11 +28,14 @@ public class SorpresaConvertirJugador extends Sorpresa {
         return str;
     }
     
-    public void aplicarAJugador(int actual,ArrayList<Jugador> todos){
-        if (jugadorCorrecto(actual,todos)){
+    public void aplicarAJugador(int actual, ArrayList<Jugador> todos) {
+        if (jugadorCorrecto(actual, todos)) {
             Jugador jugadorActual = todos.get(actual);
-            informe(actual,todos);
-            jugadorActual = new JugadorEspeculador(todos.get(actual), valor);
-        }
+            informe(actual, todos);
+            JugadorEspeculador jugadorEspeculador =
+                new JugadorEspeculador(jugadorActual, valor);
+            todos.remove(actual);
+            todos.add(actual, jugadorEspeculador);
     }
+  }
 }

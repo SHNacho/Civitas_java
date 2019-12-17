@@ -114,15 +114,15 @@ public class TituloPropiedad {
         return importeHipoteca;
     }
 
-    String getNombre(){
+    public String getNombre(){
         return nombre;
     }
 
-    int getNumCasas(){
+    public int getNumCasas(){
         return numCasas;
     }
 
-    int getNumHoteles(){
+    public int getNumHoteles(){
         return numHoteles;
     }
 
