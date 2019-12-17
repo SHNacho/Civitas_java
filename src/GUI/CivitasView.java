@@ -55,6 +55,7 @@ public class CivitasView extends javax.swing.JFrame {
         
         if (juego.finalDelJuego()){
             
+            panel_ranking.setVisible(true);
             ranking.setVisible(true);
             area_ranking.setVisible(true);
             
