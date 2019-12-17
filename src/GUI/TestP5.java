@@ -22,7 +22,7 @@ public class TestP5 {
         
         Dado dado = Dado.getInstance();
         
-        dado.setDebug(true);
+        dado.setDebug(false);
         
         CapturaNombres captura = new CapturaNombres(vistaCivitas, true);
         
