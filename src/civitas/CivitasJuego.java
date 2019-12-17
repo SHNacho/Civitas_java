@@ -159,18 +159,17 @@ public class CivitasJuego {
     }
     
     private void inicializarMazoSorpresas(Tablero tablero){
-        mazo.alMazo(new SorpresaIrCasilla(tablero, 14, "Ve a la casilla 14"));
+//        mazo.alMazo(new SorpresaIrCasilla(tablero, 14, "Ve a la casilla 14"));
         mazo.alMazo(new SorpresaConvertirJugador(200, "Convertir Jugador"));
-        mazo.alMazo(new SorpresaIrCarcel(tablero));
-        mazo.alMazo(new SorpresaIrCasilla(tablero, 3, "Ve a la casilla 3"));
-        
-        mazo.alMazo(new SorpresaPorCasaHotel(50, "Cobra 50 por cada propiedad"));
-        mazo.alMazo(new SorpresaPagarCobrar(200, "Cobra 200"));
-        mazo.alMazo(new SorpresaPagarCobrar(-200, "Paga 200"));
-        mazo.alMazo(new SorpresaPorCasaHotel(-50, "Paga 50 por cada propiedad"));
-        mazo.alMazo(new SorpresaSalirCarcel(mazo));
-        mazo.alMazo(new SorpresaPorJugador(50, "Recibe 50 de cada jugador"));
-        mazo.alMazo(new SorpresaPorCasaHotel(-50, "Paga 50 a cada jugador"));
+//        mazo.alMazo(new SorpresaIrCarcel(tablero));
+//        mazo.alMazo(new SorpresaIrCasilla(tablero, 3, "Ve a la casilla 3"));
+//        mazo.alMazo(new SorpresaPorCasaHotel(50, "Cobra 50 por cada propiedad"));
+//        mazo.alMazo(new SorpresaPagarCobrar(200, "Cobra 200"));
+//        mazo.alMazo(new SorpresaPagarCobrar(-200, "Paga 200"));
+//        mazo.alMazo(new SorpresaPorCasaHotel(-50, "Paga 50 por cada propiedad"));
+//        mazo.alMazo(new SorpresaSalirCarcel(mazo));
+//        mazo.alMazo(new SorpresaPorJugador(50, "Recibe 50 de cada jugador"));
+//        mazo.alMazo(new SorpresaPorCasaHotel(-50, "Paga 50 a cada jugador"));
         
     }
     
