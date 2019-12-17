@@ -7,22 +7,115 @@ package GUI;
 
 import civitas.CivitasJuego;
 
+import civitas.OperacionesJuego;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author juliocamposrodriguez
  */
 public class CivitasView extends javax.swing.JFrame {
+    
     CivitasJuego juego;
-    /**
+    JugadorPanel jugadorPanel;
+    GestionarDialog gestionarD;
+    
+   /**
      * Creates new form CivitasView
      */
     public CivitasView() {
         initComponents();
+        
+        gestionarD = new GestionarDialog(this);
+        
+        jugadorPanel = new JugadorPanel();
+        
+        contenedorVistaJugador.add(jugadorPanel);
+        
+        repaint();
+        
+        revalidate();
     }
     
     public void setCivitasJuego(CivitasJuego game){
         juego = game;
         setVisible(true);
+    }
+    
+    public void actualizarVista(){
+        jugadorPanel.setJugador(juego.getJugadorActual());
+        
+        texto_casilla.setText(juego.getCasillaActual().toString());
+        
+        panel_ranking.setVisible(false);
+        
+        ranking.setVisible(false);
+        
+        area_ranking.setVisible(false);
+        
+        if (juego.finalDelJuego()){
+            
+            ranking.setVisible(true);
+            area_ranking.setVisible(true);
+            
+            String rank = juego.mostrar_ranking();
+            
+            area_ranking.setText(rank);
+        }
+        
+        repaint();
+        
+        revalidate();
+    }
+    
+    public void mostrarSiguienteOperacion(OperacionesJuego operacion){
+        
+        texto_operacion.setText(operacion.toString());
+        
+        actualizarVista();
+    }
+    
+    void mostrarEventos(){
+        DiarioDialog diarioD = new DiarioDialog(this);
+    }
+    
+    public Respuestas comprar(){
+        int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres comprar la calle actual?", "Compra", JOptionPane.YES_NO_OPTION);
+        
+        if (opcion==0)
+            return Respuestas.SI;
+        else
+            return Respuestas.NO;
+    }
+    
+    public SalidasCarcel salirCarcel(){
+        String[] opciones = {"Pagando", "Tirando"};
+        
+        int respuesta = JOptionPane.showOptionDialog(null, "¿Cómo quieres salir de la carcel?", "Salir de la carcel", 
+                JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
+        
+        if (respuesta == 0)
+            return SalidasCarcel.PAGANDO;
+        else
+            return SalidasCarcel.TIRANDO;
+    }
+    
+    public int getGestion(){
+        return gestionarD.getGestion();
+    }
+    
+    public int getPropiedad(){
+        return gestionarD.getPropiedad();
+    }
+    
+    public void gestionar(){
+        gestionarD.gestionar(juego.getJugadorActual());
+        
+        pack();
+        repaint();
+        revalidate();
+        
+        gestionarD.setVisible(true);
     }
 
     /**
@@ -35,6 +128,13 @@ public class CivitasView extends javax.swing.JFrame {
     private void initComponents() {
 
         Titulo = new javax.swing.JLabel();
+        contenedorVistaJugador = new javax.swing.JPanel();
+        texto_casilla = new javax.swing.JTextField();
+        siguiente_operacion = new javax.swing.JLabel();
+        texto_operacion = new javax.swing.JTextField();
+        ranking = new javax.swing.JLabel();
+        panel_ranking = new javax.swing.JScrollPane();
+        area_ranking = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,24 +142,81 @@ public class CivitasView extends javax.swing.JFrame {
         Titulo.setText("CivitasJuego");
         Titulo.setEnabled(false);
 
+        texto_casilla.setText("jTextField1");
+        texto_casilla.setEnabled(false);
+
+        siguiente_operacion.setText("Siguiente operación");
+        siguiente_operacion.setEnabled(false);
+
+        texto_operacion.setText("jTextField1");
+        texto_operacion.setEnabled(false);
+        texto_operacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                texto_operacionActionPerformed(evt);
+            }
+        });
+
+        ranking.setText("Ranking");
+
+        area_ranking.setColumns(20);
+        area_ranking.setRows(5);
+        panel_ranking.setViewportView(area_ranking);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(144, 144, 144)
-                .addComponent(Titulo)
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(contenedorVistaJugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(siguiente_operacion)
+                                .addGap(42, 42, 42)
+                                .addComponent(texto_operacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(302, 302, 302)
+                        .addComponent(panel_ranking, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(395, 395, 395)
+                        .addComponent(ranking))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(374, 374, 374)
+                        .addComponent(Titulo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(texto_casilla, javax.swing.GroupLayout.PREFERRED_SIZE, 829, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 278, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(contenedorVistaJugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(texto_casilla, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(siguiente_operacion)
+                    .addComponent(texto_operacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 288, Short.MAX_VALUE)
+                .addComponent(ranking)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panel_ranking, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void texto_operacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_texto_operacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_texto_operacionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -98,5 +255,12 @@ public class CivitasView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Titulo;
+    private javax.swing.JTextArea area_ranking;
+    private javax.swing.JPanel contenedorVistaJugador;
+    private javax.swing.JScrollPane panel_ranking;
+    private javax.swing.JLabel ranking;
+    private javax.swing.JLabel siguiente_operacion;
+    private javax.swing.JTextField texto_casilla;
+    private javax.swing.JTextField texto_operacion;
     // End of variables declaration//GEN-END:variables
 }

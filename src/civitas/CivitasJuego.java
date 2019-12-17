@@ -175,6 +175,8 @@ public class CivitasJuego {
     
     private void inicializarTablero(MazoSorpresas mazo){
         // Salida ya se añade en la posición 0
+        
+        tablero.añadeJuez();
 
         // Añadimos en la posición 1 la calle 1
         tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 1", 100, 0.05f, 200, 400, 300)));
@@ -209,7 +211,7 @@ public class CivitasJuego {
         
         // Añadimos en la posición 15 el juez
         
-        tablero.añadeJuez();
+        
         
         // Añadimos en la posición 16 la calle 10
         
@@ -240,6 +242,17 @@ public class CivitasJuego {
         Collections.sort(jugadores);
         
         return jugadores;
+    }
+    
+    public String mostrar_ranking(){
+        ranking();
+        
+        String rank = "";
+        
+        for (Jugador j : jugadores)
+            rank += j.getNombre() + '\n';
+        
+        return rank;
     }
 
     private void avanzaJugador(){
