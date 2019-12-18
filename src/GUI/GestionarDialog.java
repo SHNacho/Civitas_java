@@ -24,6 +24,7 @@ public class GestionarDialog extends javax.swing.JDialog {
     public GestionarDialog(java.awt.Frame parent) {
         super(parent, true);
         initComponents();
+        setLocationRelativeTo(null);
         propiedadElegida = -1;
         gestionElegida = -1;
     }
