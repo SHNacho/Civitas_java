@@ -159,27 +159,25 @@ public class CivitasJuego {
     }
     
     private void inicializarMazoSorpresas(Tablero tablero){
-//        mazo.alMazo(new SorpresaIrCasilla(tablero, 14, "Ve a la casilla 14"));
+        mazo.alMazo(new SorpresaIrCasilla(tablero, 14, "Ve a la casilla 14"));
         mazo.alMazo(new SorpresaConvertirJugador(200, "Convertir Jugador"));
-//        mazo.alMazo(new SorpresaIrCarcel(tablero));
-//        mazo.alMazo(new SorpresaIrCasilla(tablero, 3, "Ve a la casilla 3"));
-//        mazo.alMazo(new SorpresaPorCasaHotel(50, "Cobra 50 por cada propiedad"));
-//        mazo.alMazo(new SorpresaPagarCobrar(200, "Cobra 200"));
-//        mazo.alMazo(new SorpresaPagarCobrar(-200, "Paga 200"));
-//        mazo.alMazo(new SorpresaPorCasaHotel(-50, "Paga 50 por cada propiedad"));
-//        mazo.alMazo(new SorpresaSalirCarcel(mazo));
-//        mazo.alMazo(new SorpresaPorJugador(50, "Recibe 50 de cada jugador"));
-//        mazo.alMazo(new SorpresaPorCasaHotel(-50, "Paga 50 a cada jugador"));
+        mazo.alMazo(new SorpresaIrCarcel(tablero));
+        mazo.alMazo(new SorpresaIrCasilla(tablero, 3, "Ve a la casilla 3"));
+        mazo.alMazo(new SorpresaPorCasaHotel(50, "Cobra 50 por cada propiedad"));
+        mazo.alMazo(new SorpresaPagarCobrar(200, "Cobra 200"));
+        mazo.alMazo(new SorpresaPagarCobrar(-200, "Paga 200"));
+        mazo.alMazo(new SorpresaPorCasaHotel(-50, "Paga 50 por cada propiedad"));
+        mazo.alMazo(new SorpresaSalirCarcel(mazo));
+        mazo.alMazo(new SorpresaPorJugador(50, "Recibe 50 de cada jugador"));
+        mazo.alMazo(new SorpresaPorCasaHotel(-50, "Paga 50 a cada jugador"));
         
     }
     
     private void inicializarTablero(MazoSorpresas mazo){
         // Salida ya se añade en la posición 0
-        
-        tablero.añadeJuez();
 
         // Añadimos en la posición 1 la calle 1
-        tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 1", 100, 0.05f, 200, 400, 300)));
+        tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 1", 10000, 0.05f, 200, 400, 300)));
         tablero.añadeCasilla(new CasillaSorpresa(mazo, "Sorpresa 1"));
 
         // Añadimos en la posición 2 la casilla impuesto
@@ -209,9 +207,8 @@ public class CivitasJuego {
         
         tablero.añadeCasilla(new CasillaCalle(new TituloPropiedad("Calle 9", 175, 0.05f, 350, 700, 525)));
         
-        // Añadimos en la posición 15 el juez
-        
-        
+        // Añadimos en la posición 15 el juez        
+        tablero.añadeJuez();
         
         // Añadimos en la posición 16 la calle 10
         
