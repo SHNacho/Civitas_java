@@ -69,6 +69,7 @@ public class DiarioDialog extends javax.swing.JDialog {
 
         area_eventos.setColumns(20);
         area_eventos.setRows(5);
+        area_eventos.setEnabled(false);
         jScrollPane2.setViewportView(area_eventos);
 
         ok_button.setText("OK");

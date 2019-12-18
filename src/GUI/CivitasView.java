@@ -158,10 +158,12 @@ public class CivitasView extends javax.swing.JFrame {
 
         area_ranking.setColumns(20);
         area_ranking.setRows(5);
+        area_ranking.setEnabled(false);
         panel_ranking.setViewportView(area_ranking);
 
         texto_casilla.setColumns(20);
         texto_casilla.setRows(5);
+        texto_casilla.setEnabled(false);
         jScrollPane1.setViewportView(texto_casilla);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
