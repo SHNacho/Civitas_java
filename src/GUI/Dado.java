@@ -81,11 +81,11 @@ public class Dado extends JDialog {
     @Override
     public void actionPerformed (ActionEvent ev) {
          if (debug)
-             jL_texto.setText("El dado está en modo debug y siempre sale 1" );
+             jL_debug.setText("El dado está en modo debug y siempre sale 1" );
          else 
-             jL_texto.setText("El dado se ha puesto en modo normal. Sale entre 1 y 6 aleatoriamente" );
+             jL_debug.setText("El dado se ha puesto en modo normal. Sale entre 1 y 6 aleatoriamente" );
         ultimoResultado = privateTirar();
-        jL_texto.setText(Integer.toString(ultimoResultado));
+        jL_dice.setText(Integer.toString(ultimoResultado));
         pack();
       }
     };
@@ -114,6 +114,7 @@ public class Dado extends JDialog {
         jL_texto = new javax.swing.JLabel();
         jB_OK = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jL_debug = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Dado");
@@ -136,7 +137,7 @@ public class Dado extends JDialog {
         jL_texto.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jL_texto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jL_texto.setText("Dado");
-        getContentPane().add(jL_texto, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, -1, -1));
+        getContentPane().add(jL_texto, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, -1, -1));
 
         jB_OK.setText("OK");
         jB_OK.addActionListener(new java.awt.event.ActionListener() {
@@ -148,7 +149,11 @@ public class Dado extends JDialog {
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("pincha sobre el dado para detenerlo");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
+
+        jL_debug.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jL_debug.setText("debug");
+        getContentPane().add(jL_debug, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 310, -1));
 
         setSize(new java.awt.Dimension(313, 288));
         setLocationRelativeTo(null);
@@ -168,6 +173,7 @@ public class Dado extends JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jB_OK;
+    private javax.swing.JLabel jL_debug;
     private javax.swing.JLabel jL_dice;
     private javax.swing.JLabel jL_texto;
     private javax.swing.JLabel jLabel1;
